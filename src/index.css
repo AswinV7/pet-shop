@@ -1,5 +1,8 @@
-body {
+html,body {
+  width: 100%;
+  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +14,134 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button
+{
+  background-color: transparent;
+  padding: 10px 120px;
+  margin: 0 20px;
+  font-weight: bold;
+  font-family: Ramaraja;
+  font-size: 2rem;
+  border-radius: 30px;
+  color: white;
+  border: solid white 2px;
+}
+
+button:hover
+{
+  background-color: #FFF;
+  box-shadow: 0 8px;
+  color: #231248;
+}
+
+.Overview
+{
+  width: 100%;
+  height: 100%;
+}
+
+.Overview .Overview1 .logo
+{
+  font-family: Ramaraja;
+  font-size: 2.2rem;
+  background-color: #FFF;
+  opacity: 0.92;
+  padding: 15px 40px;
+}
+
+.Overview .Overview1
+{
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/Images/Bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.Overview .Overview1 h2
+{
+  font-family: Ramaraja;
+  font-size: 3rem;
+  color: white;
+  text-align: left;
+  margin-top: 20%;
+  margin-left: 5%;
+}
+
+.Overview .Overview1 .Button
+{
+  display: flex;
+  padding-bottom: 10%;
+  justify-content: flex-end;
+  margin-right: 10%;
+}
+
+.Overview .Overview2
+{
+  display: flex;
+}
+
+.Overview .Overview2 p
+{
+  padding: 0 2%;
+  margin-right: 10%;
+  color: #231248;
+  font-size: 3rem;
+  font-family: Ramaraja;
+}
+
+.Overview .Overview2 .Vector1
+{
+  padding: 1.5%;
+  margin-left: 20%;
+  height: 100%;
+}
+
+.Overview .Overview2 .Vector2
+{
+  padding: 1.5%;
+  height: 100%;
+}
+
+.Header
+{
+  display: flex;
+  border: solid #231248 2px;
+  justify-content: space-between;
+  box-shadow: 0 5px;
+  background-color: #FFF;
+  color: #231248;
+}
+
+.Header h1
+{
+  margin-top: 5px;
+  margin-left: 2%;
+}
+
+.Header input
+{
+  width: 300px;
+  margin: 15px 25px;
+  padding-left: 2%;
+  border: solid blue 2px;
+}
+
+.Footer
+{
+  display: flex;
+  font-size: 1.2rem;
+  font-family: Ramaraja;
+  justify-content: center;
+  background-color: #231248EB;
+  color: #FFF;
+}
+
+.Footer h4
+{
+  padding: 0 5%;
+}
+
+
