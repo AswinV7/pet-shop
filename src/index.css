@@ -15,7 +15,9 @@ code {
     monospace;
 }
 
-button
+/*Home Page*/
+
+.Button button
 {
   background-color: transparent;
   padding: 10px 120px;
@@ -28,7 +30,7 @@ button
   border: solid white 2px;
 }
 
-button:hover
+.Button button:hover
 {
   background-color: #FFF;
   box-shadow: 0 8px;
@@ -144,4 +146,115 @@ button:hover
   padding: 0 5%;
 }
 
+/* User Page*/
+
+.User
+{
+  font-family: Ramaraja;
+}
+
+.User .featured-title
+{
+  text-align : center;
+  color: #231248;
+  font-size: 2.5rem;
+}
+
+.User .shop-title
+{
+  margin-left : 10%;
+  color: #231248;
+  font-size: 2.5rem;
+}
+
+.User .cards
+{
+  display : flex;
+  justify-content: center;
+  border-top:solid black 2px;
+}
+
+.featured-pet
+{
+  
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+.featured-pet .pet-image
+{
+  width: 250px;
+}
+
+.featured-pet .info
+{
+  text-align: center;
+}
+
+.featured-pet .ff button
+{
+  background-color: #231248;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  box-shadow: 2px;
+}
+
+.featured-pet .ff button:hover
+{
+  background-color: white;
+  color: #231248;
+  box-shadow: 3px 3px 5px 5px;
+}
+
+.featured-pet .pet-image img
+{
+  width: 100%;
+}
+
+.shops-list
+{
+  display: flex;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+.shops-list .shops-images
+{
+  width: 200px;
+}
+
+.shops-list .shops-images img
+{
+  width: 80%;
+}
+
+.shops-list .info button
+{
+  background-color: #231248;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  box-shadow: 2px;
+}
+
+.shops-list .info button:hover
+{
+  background-color: white;
+  color: #231248;
+  box-shadow: 3px 3px 5px 5px;
+}
+
+.shops-list .info .shops-location
+{
+  font-weight: normal;
+}
 
