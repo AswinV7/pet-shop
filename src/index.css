@@ -39,13 +39,13 @@ code {
 
 .Overview
 {
+  font-family: Ramaraja;
   width: 100%;
   height: 100%;
 }
 
 .Overview .Overview1 .logo
 {
-  font-family: Ramaraja;
   font-size: 2.2rem;
   background-color: #FFF;
   opacity: 0.92;
@@ -64,7 +64,6 @@ code {
 
 .Overview .Overview1 h2
 {
-  font-family: Ramaraja;
   font-size: 3rem;
   color: white;
   text-align: left;
@@ -91,7 +90,6 @@ code {
   margin-right: 10%;
   color: #231248;
   font-size: 3rem;
-  font-family: Ramaraja;
 }
 
 .Overview .Overview2 .Vector1
@@ -109,10 +107,10 @@ code {
 
 .Header
 {
+  font-family: Ramaraja;
   display: flex;
-  border: solid #231248 2px;
   justify-content: space-between;
-  box-shadow: 0 5px;
+  box-shadow: 0 2px;
   background-color: #FFF;
   color: #231248;
 }
@@ -167,37 +165,59 @@ code {
   font-size: 2.5rem;
 }
 
-.User .cards
+.User .cards-pets
 {
   display : flex;
   justify-content: center;
-  border-top:solid black 2px;
+  padding: 10px;
+  background: rgba(77, 57, 30, 0.15);
+}
+
+.User .cards-shops
+{
+  display : flex;
+  justify-content: center;
 }
 
 .featured-pet
 {
-  
+  display: flex;
   text-align: center;
   margin: 20px;
-  padding: 10px;
+  background: #FFFFFF;
+  box-shadow: 4px 5px 18px #231248;
 }
 
 .featured-pet .pet-image
 {
-  width: 250px;
+  width: 200px;
+  height: 120px;
 }
 
 .featured-pet .info
 {
-  text-align: center;
+  width: 150px;
+}
+
+.featured-pet .info .pet-name
+{
+  color: #231248;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.featured-pet .info .pet-breed
+{
+  color: #231248;
+  margin: 0;
+  padding: 8px 0;
 }
 
 .featured-pet .ff button
 {
   background-color: #231248;
-  padding: 10px 50px;
+  padding: 10px 20px;
   border-radius: 20px;
-  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   color: white;
@@ -224,14 +244,21 @@ code {
   padding: 10px;
 }
 
+.shops-list .info
+{
+  background: rgba(77, 57, 30, 0.15);
+  padding: 10px;
+}
+
 .shops-list .shops-images
 {
-  width: 200px;
+  width: 180px;
 }
 
 .shops-list .shops-images img
 {
-  width: 80%;
+  width: 100%;
+  height: 100%;
 }
 
 .shops-list .info button
@@ -258,3 +285,285 @@ code {
   font-weight: normal;
 }
 
+/*shops main*/
+
+.shop-overview .Header input
+{
+  display: none;
+}
+
+.shop-main
+{
+  width: 500px;
+  height: 400px;
+  margin: 5% 30%;
+  padding: 120px 0;
+  font-family: Ramaraja;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shop-main button
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  width: 60%;
+  padding: 10px 0;
+  margin: 20px 20%;
+  color: white;
+  background-color: #6167FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 41px;
+  border: none;
+}
+
+.shop-main button img
+{
+  color: #FFF;
+  width: 10%;
+  margin: 0 50px;
+}
+
+
+/*SignUp Page*/
+
+.SignUp .Header input
+{
+  display: none;
+}
+
+.signup-page
+{
+  font-family: Ramaraja;
+  width: 500px;
+  height: 500px;
+  margin: 5% 30%;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signup-page .signup-form label
+{
+  display: flex;
+  margin: 10px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.signup-page .signup-form img
+{
+  width: 8%;
+}
+
+.signup-page .signup-form input
+{
+  width: 100%;
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 5px 0;
+}
+
+.signup-page .signup-form button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  border: none;
+  color: #FFF;
+  margin-left: 42%;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 35px;
+}
+
+.signup-page .al
+{
+  display: flex;
+  justify-content: center;
+}
+
+.signup-page .al .signin-here
+{
+  padding: 0 10px;
+  cursor: pointer;
+  color: #6167FF;
+}
+
+/* Pet Details */
+
+.pets-details
+{
+  font-family: Ramaraja;
+}
+
+.pets-details .pet
+{
+  padding: 4% 6%;
+}
+
+.pets-details .Header input
+{
+  display: none;
+}
+
+.pets-details .pet .pets-info
+{
+  display: flex;
+}
+
+.pets-details .pet .pets-info .pet-header
+{
+  color:#231248;
+  margin: 10px 80px;
+  font-size: 2rem;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory
+{
+  display: flex;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory .catagory
+{
+  padding: 5px 10px;
+  background-color: #C4C4C4;
+  border-radius: 40px;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory h4
+{
+  padding: 5px 15px;
+  margin: 0 10px;
+  border: 1px solid #231248;
+  border-radius: 40px;
+}
+
+.pets-details .pet .About-me h1
+{
+  width: 80%;
+  padding: 10px 0;
+  border-bottom: solid black 2px;
+}
+
+.pets-details .pet .About-me h6
+{
+  margin: 10px 0;
+  padding-right: 5%;
+  font-size: 1.7rem;
+}
+
+.pets-details .pet button
+{
+  background-color:#6167FF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 25px rgba(0, 0, 0, 0.25));
+  border-radius: 40px;
+  border: none;
+  margin-left: 75%;
+  padding: 20px 55px;
+  color: #FFF;
+}
+
+/*Login Page*/
+
+.Login .Header input
+{
+  display: none;
+}
+
+.login-page
+{
+  font-family: Ramaraja;
+  width: 500px;
+  height: 400px;
+  padding: 30px 0;
+  margin: 5% 30%;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-page h2
+{
+  margin: 40px;
+}
+
+.login-page .login-form label
+{
+  display: flex;
+  margin: 10px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.login-page .login-form img
+{
+  width: 10%;
+}
+
+.login-page .login-form input
+{
+  width: 100%;
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 10px 0;
+}
+
+.login-page .forget-password
+{
+  display: flex;
+  justify-content: center;
+}
+
+.login-page .create-account
+{
+  display: flex;
+  justify-content: center;
+}
+
+.login-page .forget-password button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  font-weight: bold;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px 40px;
+  margin: 10px;
+}
+
+.login-page .click-here
+{
+  padding: 0 10px;
+  cursor: pointer;
+  color: #6167FF;
+}

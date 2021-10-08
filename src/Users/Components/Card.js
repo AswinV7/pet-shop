@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../../Shared/Components/Button'
-import image1 from '../../Images/dog13.png'
+import image1 from '../../Images/puppy.png'
 import { useHistory } from 'react-router'
 
-const Card = ({name, info, petid, shopid}) => {
+const Card = ({name, breed, petid,}) => {
     const history = useHistory()
     return (
         <div className="featured-pet">
@@ -12,11 +12,12 @@ const Card = ({name, info, petid, shopid}) => {
             </div>
             <div className="info">
                 <h3 className = "pet-name">{name}</h3>
-                <h4 className = "pet-info">{info}</h4>
+                <h4 className = "pet-breed">{breed}</h4>
+                <div className = "ff" >
+                    <Button text = "Adopt Me" onClick = {() => history.push(`/shops/5/${petid}`)} />
+                </div>
             </div>
-            <div className = "ff" >
-                <Button text = "Adopt Me" onClick = {() => history.push(`/shops/5/${petid}`)} />
-            </div>
+            
         </div>
     )
 }

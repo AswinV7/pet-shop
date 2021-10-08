@@ -12,7 +12,7 @@ const Overview = () => {
                 <h1 className = "logo">Companion</h1>
                 <h2>The most trusted online pet adoption site </h2>
                 <div className = "Button">
-                    <Button text = "Owner" onClick = {() => {history.push("/shop")}} />
+                    <Button text = "Owner" onClick = {() => {history.push("/shops")}} />
                     <Button text = "User" onClick = {() => {history.push("/user")}} />
                 </div>
                 
