@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import Image1 from '../../Images/profile2.png'
 import Image2 from '../../Images/location1.png'
@@ -7,6 +8,9 @@ import Image4 from '../../Images/lock.png'
 import postData from '../../Services/postData'
 
 const SignUp = () => {
+
+    const history = useHistory()
+    
     const [shopName, setShopName] = useState("")
     const [shopLocation, setShopLocation] = useState("")
     const [pin, setPin] = useState("")
@@ -75,11 +79,11 @@ const SignUp = () => {
                         <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform Password" onChange = {(e) => {setConformPassword(e.target.value)}} />
                     </label>
                 
-                    <button type = "submit"> SUBMIT</button>
+                    <button type = "submit" onClick = {() => history.push(`/login`)}> SUBMIT</button>
                 </form>
                 <div className = "al">
                     <h5>ALREADY HAVE AN ACCOUNT?</h5> 
-                    <h5 className = "signin-here"> SIGNIN HERE</h5>
+                    <h5 className = "signin-here" onClick = {() => history.push(`/login`)} > SIGNIN HERE</h5>
                     
                 </div>
                 

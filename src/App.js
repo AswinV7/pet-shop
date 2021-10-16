@@ -9,6 +9,8 @@ import Shop from './Shops/Pages/Shop';
 import SignUp from './Shops/Pages/SignUp';
 import Login from './Shops/Pages/Login';
 import AddPets from './Shops/Pages/AddPets';
+import Profile from './Shops/Pages/Profile';
+import SignIn from './Users/Pages/SignIn';
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
             <Route path = "/signup" component = {SignUp} exact />
             <Route path = "/login" component = {Login} exact />
             <Route path = "/add-pet" component = {AddPets} exact />
+            <Route path = "/profile" component = {Profile} exact />
+            <Route path = "/signin" component = {SignIn} exact />
           </Switch>
         </Router>
       <Footer />

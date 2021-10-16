@@ -588,9 +588,8 @@ code {
 .add-pets
 {
   font-family: Ramaraja;
-  width: 500px;
   height: 500px;
-  margin: 5% 30%;
+  margin: 2% 20%;
   text-align: center;
   background: #FCFCFC;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -598,11 +597,17 @@ code {
   box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
 }
 
+.add-pets .add-details
+{
+  display: flex;
+  justify-content: center;
+}
+
 .add-pets .add-form label
 {
   display: flex;
   margin: 10px 80px;
-  padding: 0 10px;
+  padding: 0 20px;
   align-items: center;
   border: 1px solid #000000;
   border-radius: 40px;
@@ -610,12 +615,12 @@ code {
 
 .add-pets .add-form input
 {
-  width: 100%;
   outline: none;
   background:#FCFCFC;
   font-weight: bold;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 0;
+  padding-right: 80px;
   border: none;
   margin: 5px 0;
 }
@@ -632,3 +637,204 @@ code {
   font-weight: bold;
   padding: 10px 35px;
 }
+
+.add-pets .add-details .add-img
+{
+  width: 150px;
+  height: 150px;
+}
+
+.add-pets .add-details .add-img .image
+{
+  height: 90%;
+  border: solid black 2px;
+}
+
+.add-pets .add-details .add-img button
+{
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 5px 0;
+  border: none;
+  background: #7B61FF;
+}
+
+/*Shop Profile*/
+
+.Profile .Header input
+{
+  display: none;
+}
+
+.profile
+{
+  display: flex;
+}
+
+.profile .profile-button
+{
+  width: 20%;
+  background-color: #231248;
+  color: white;
+  text-align: center;
+}
+
+.profile .profile-button .shop-details
+{
+  margin: 30px;
+}
+
+.profile .profile-button .shop-details .shop-pic
+{
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 60px;
+}
+
+.profile .profile-button .options
+{ 
+  margin: 80px 0;
+}
+
+.profile .profile-button .options h2
+{
+  padding: 10px;
+}
+
+.profile .profile-button .options h2:hover
+{
+  background: #E5E5E5;
+  color: #000;
+  transition: 1.7s;
+  margin-left: 40px;
+}
+
+.profile .profile-details
+{
+  display: flex;
+  width: 75%;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.profile .profile-details .details
+{
+  width: 75%;
+  padding: 10px;
+}
+
+.profile .profile-details .basic-details
+{
+  color: #7B61FF;
+  border-bottom: solid #000 2px ;
+}
+
+.profile .profile-details .details .details1
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile .profile-details .details .details1 button
+{
+  background-color: #C4C4C4;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-bottom: 24%;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+
+.profile .profile-details .profile-image
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.profile .profile-details .profile-image .image
+{
+  width: 75%;
+  height: 200px;
+  border: solid black 2px;
+}
+
+.profile .profile-details .profile-image button
+{
+  width: 77%;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 8px 0;
+  margin: 0;
+  background-color: #7B61FF;
+}
+
+/*SignIn Page*/
+
+.SignIn .Header input
+{
+  display: none;
+}
+
+.signin-page
+{
+  font-family: Ramaraja;
+  width: 500px;
+  height: 400px;
+  margin: 5% 30%;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signin-page .signin-form label
+{
+  display: flex;
+  margin: 15px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.signin-page .signin-form img
+{
+  width: 8%;
+}
+
+.signin-page .signin-form input
+{
+  width: 100%;
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 5px 0;
+}
+
+.signin-page .signin-form button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  border: none;
+  color: #FFF;
+  margin-left: 42%;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 35px;
+}
+
+
