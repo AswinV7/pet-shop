@@ -8,6 +8,7 @@ import Pet from './Shops/Pages/Pet';
 import Shop from './Shops/Pages/Shop';
 import SignUp from './Shops/Pages/SignUp';
 import Login from './Shops/Pages/Login';
+import AddPets from './Shops/Pages/AddPets';
 
 const App = () => {
   return (
@@ -17,10 +18,11 @@ const App = () => {
             <Route path = "/" component = {Overview} exact />
             <Route path = "/shops" component = {Shops} exact />
             <Route path = "/user" component = {User} />
-            <Route path = "/shops/:shopid/:petid" component = {Pet} exact />
+            <Route path = "/shops/pets/:petid" component = {Pet} exact />
             <Route path = "/shops/:shopid" component = {Shop} exact/>
             <Route path = "/signup" component = {SignUp} exact />
             <Route path = "/login" component = {Login} exact />
+            <Route path = "/add-pet" component = {AddPets} exact />
           </Switch>
         </Router>
       <Footer />

@@ -190,13 +190,18 @@ code {
 
 .featured-pet .pet-image
 {
-  width: 200px;
-  height: 120px;
+  width: 80%;
+}
+
+.featured-pet .pet-image img
+{
+  height: 100%;
 }
 
 .featured-pet .info
 {
   width: 150px;
+  padding: 10px;
 }
 
 .featured-pet .info .pet-name
@@ -211,6 +216,11 @@ code {
   color: #231248;
   margin: 0;
   padding: 8px 0;
+}
+
+.featured-pet .info .pet-price
+{
+  color: red;
 }
 
 .featured-pet .ff button
@@ -566,4 +576,59 @@ code {
   padding: 0 10px;
   cursor: pointer;
   color: #6167FF;
+}
+
+/*Add Pet*/
+
+.Add-Pet .Header input
+{
+  display: none;
+}
+
+.add-pets
+{
+  font-family: Ramaraja;
+  width: 500px;
+  height: 500px;
+  margin: 5% 30%;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.add-pets .add-form label
+{
+  display: flex;
+  margin: 10px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.add-pets .add-form input
+{
+  width: 100%;
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 5px 0;
+}
+
+.add-pets .add-form button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  border: none;
+  color: #FFF;
+  margin-left: 42%;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 35px;
 }

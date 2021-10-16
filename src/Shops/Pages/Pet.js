@@ -1,27 +1,35 @@
-import React from 'react'
-import { useParams } from 'react-router'
+import React, { useEffect, useState } from 'react'
 import Button from '../../Shared/Components/Button'
 import Header from '../../Shared/Components/Header'
 import Image from '../../Images/puppy.png'
-import pets from '../../Data/pets'
+import API_url from '../../Services/API_url'
 
 const Pet = () => {
-    const params = useParams();
+
+    const [pet, setPet] = useState([])
+    
+    useEffect(() => {
+        fetch(API_url + '/shop/pets')
+        .then(res => res.json())
+        .then(result => setPet(result))
+    },[])
+
     return (
         <div className = "pets-details">
             <Header />
+            {console.log(pet)}
             <div className="pet">
                 <div className = "pets-info">
                     <div className="image">
                         <img src = {Image} alt = "" />
                     </div>
                     <div className="pet-header">
-                        <h2>Name  :  {pets[params.petid - 1].name}</h2>
-                        <h4>Age  :  {pets[params.petid - 1].age}</h4>
-                        <h4>Breed  :  {pets[params.petid - 1].breed}</h4>
+                        <h2>Name  :  {pet.map(pet => {return pet.petName})} </h2>
+                        <h4>Age  :  </h4>
+                        <h4>Breed  :  </h4>
                         <div className = "Catagory">
                             <h4 className = "catagory">CATEGORY</h4>
-                            <h4>{pets[params.petid - 1].catagory}</h4>
+                            <h4></h4>
                         </div>
                     </div>
                 </div>
@@ -30,7 +38,7 @@ const Pet = () => {
                 </div>
                 <div className = "About-me">
                     <h1>ABOUT MY STORY</h1>
-                    <h6>{pets[params.petid - 1].info}</h6>
+                    <h6></h6>
                 </div>
                 <Button text = "ADOPT " onClick = {() => {}} />
             </div>
