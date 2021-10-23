@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../../CSS/User/User.css'
 import Header from '../../Shared/Components/Header'
 import Card from '../Components/Card'
 import ShopCard from '../../Shops/Components/ShopCard'

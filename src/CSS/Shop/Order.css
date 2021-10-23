@@ -1,0 +1,65 @@
+ .Header input
+{
+  display: none;
+}
+
+.orders
+{
+  display: flex;
+}
+
+.orders-details
+{
+  width: 80%;
+}
+
+.order-h
+{
+  width: 50%;
+  color: #231248;
+  margin: 4%;
+  border-bottom: solid black 3px;
+}
+
+ .orders-card
+{
+  margin-top: 2%;
+  margin-left: 7%;
+  margin-right: 25%;
+  padding: 50px 0;
+}
+
+@media screen and (max-width: 768px)
+{
+
+  .orders-details
+  {
+    width: 100%;
+  }
+  .orders-card
+  {
+    margin: 0 80px;
+  }
+}
+
+@media screen and (max-width: 480px)
+{
+
+  .orders-details
+  {
+    width: 100%;
+  }
+  .orders-card
+  {
+    margin: 0 50px;
+  }
+}
+
+@media screen and (max-width: 480px)
+{
+  .orders-card
+  {
+    margin: 0 40px;
+  }
+}
+

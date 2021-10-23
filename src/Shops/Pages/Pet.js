@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../../CSS/Shop/Pet.css'
 import Button from '../../Shared/Components/Button'
 import Header from '../../Shared/Components/Header'
 import Image from '../../Images/puppy.png'
@@ -29,7 +30,7 @@ const Pet = () => {
                         <h4>Breed  :  </h4>
                         <div className = "Catagory">
                             <h4 className = "catagory">CATEGORY</h4>
-                            <h4></h4>
+                            <h4>hhh</h4>
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@ const Pet = () => {
                 </div>
                 <div className = "About-me">
                     <h1>ABOUT MY STORY</h1>
-                    <h6></h6>
+                    <h6>hh</h6>
                 </div>
                 <Button text = "ADOPT " onClick = {() => {}} />
             </div>

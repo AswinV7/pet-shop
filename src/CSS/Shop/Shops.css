@@ -1,0 +1,126 @@
+.Header input
+{
+  display: none;
+}
+
+.shop-main
+{
+  margin: 5rem 25rem;
+  padding: 120px 0;
+  font-family: Ramaraja;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shop-main button
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  width: 60%;
+  padding: 10px 0;
+  margin: 20px 7rem;
+  color: white;
+  background-color: #6167FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 41px;
+  border: none;
+}
+
+.shop-main button img
+{
+  color: #FFF;
+  width: 10%;
+  margin: 0 50px;
+}
+
+@media screen and (max-width: 1280px) 
+{
+    .shop-main
+    {
+        margin: 8rem 18rem;
+    }
+
+    .shop-main button 
+    {
+        margin: 1rem 8.5rem;
+    }
+
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .shop-main
+    {
+        margin: 26rem 12rem;
+    }
+
+    .shop-main button 
+    {
+        margin: 1rem 8rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) 
+{
+    .shop-main
+    {
+        margin: 16rem 10rem;
+    }
+
+    .shop-main button 
+    {
+        margin: 1rem 5.5rem;
+    }
+    .shop-overview .m
+    {
+        display: none;
+     }
+    .shop-overview .z
+    {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 480px) 
+{
+
+    .shop-main
+    {
+        margin: 15rem 5rem;
+        padding: 5rem .5rem;
+    }
+
+    .shop-main button 
+    {
+        margin: 1rem 3rem;
+    }
+
+    .shop-main button img
+    {
+        margin: 0 20px;
+    }
+
+}
+
+@media screen and (max-width: 360px) 
+{
+
+    .shop-main
+    {
+        margin: 10rem 3.8rem;
+        padding: 5rem .5rem;
+    }
+
+    .shop-main button 
+    {
+        margin: 1rem 2.8rem;
+        font-size: .6rem;
+    }
+}

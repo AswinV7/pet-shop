@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../CSS/Shop/Login.css'
 import { useState } from 'react'
 import Header from '../../Shared/Components/Header'
 import Image from '../../Images/profile2.png'

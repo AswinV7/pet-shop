@@ -1,0 +1,218 @@
+.Header input
+{
+  display: none;
+}
+
+.signin-page
+{
+  font-family: Ramaraja;
+  margin: 6rem 25rem ;
+  padding: 2rem;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signin-form label
+{
+  display: flex;
+  margin: 15px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.signin-form label img
+{
+  width: 1.5rem;
+}
+
+.signin-form input
+{
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 5px 0;
+}
+
+.signin-form  button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  border: none;
+  color: #FFF;
+  margin-left: 12rem;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 35px;
+}
+
+@media screen and (max-width: 1280px) 
+{
+  .signin-page
+  {
+    font-size: 2rem;
+    margin: 10rem 15rem;
+    padding: 4rem 3rem;
+  }
+
+  .signin-form label
+  {
+    margin: 1rem;
+    padding: 0.8rem;
+  }
+
+  .signin-form label img
+  {
+    width: 2rem;
+  }
+
+  .signin-form input
+  {
+    font-size: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .signin-form button
+  {
+    font-size: 1.5rem;
+    margin-left: 25rem;
+    padding: 1rem 2rem;
+  }
+
+}
+
+@media screen and (max-width: 1024px) 
+{
+  .signin-page
+  {
+    font-size: 2rem;
+    margin: 13rem 8rem;
+    padding: 8.5rem 2rem;
+  }
+
+  .signin-form label
+  {
+    margin: 1rem;
+    padding: 0.8rem;
+  }
+
+  .signin-form label img
+  {
+    width: 2.5rem;
+  }
+
+  .signin-form input
+  {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .signin-form button
+  {
+    font-size: 1.5rem;
+    margin-left: 25rem;
+    padding: 1rem 2rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) 
+{
+  .signin-page
+  {
+    font-size: 1.5rem;
+    margin: 12rem 8rem;
+    padding: 3rem 2rem;
+  }
+
+  .signin-form label
+  {
+    margin: 1rem;
+    padding: 0.8rem;
+  }
+
+  .signin-form label img
+  {
+    width: 2rem;
+  }
+
+  .signin-form input
+  {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .signin-form button
+  {
+    margin-left: 20rem;
+    padding: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 480px) 
+{
+  .signin-page
+  {
+
+    margin: 11.8rem 3rem;
+    padding: 2rem 0.8rem;
+  }
+
+  .signin-form label
+  {
+    margin: 0.8rem 0;
+    padding: .4rem .3rem;
+  }
+
+  .signin-form label img 
+  {
+    width: 15px;
+  }
+
+
+  .signin-form input
+  {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0 5px;
+  }
+
+  .signin-form button
+  {
+    margin-left: 10rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 360px) 
+{
+
+  .signin-page
+  {
+    margin: 8.5rem 2.7rem;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .signin-form input
+  {
+    font-size: .8rem;
+    padding: 0 1.8px;
+  }
+
+  .signin-form button
+  {
+    margin-left: 8rem;
+  }
+
+}

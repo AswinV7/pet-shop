@@ -1,0 +1,77 @@
+.pets-details
+{
+  font-family: Ramaraja;
+}
+
+.pets-details .pet
+{
+  padding: 4% 6%;
+}
+
+.pets-details .Header input
+{
+  display: none;
+}
+
+.pets-details .pet .pets-info
+{
+  display: flex;
+}
+
+.pets-details .pet .pets-info .pet-header
+{
+  color:#231248;
+  margin: 10px 80px;
+  font-size: 2rem;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory
+{
+  display: flex;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory .catagory
+{
+  padding: 5px 10px;
+  background-color: #C4C4C4;
+  border-radius: 40px;
+}
+
+.pets-details .pet .pets-info .pet-header .Catagory h4
+{
+  padding: 5px 15px;
+  margin: 0 10px;
+  border: 1px solid #231248;
+  border-radius: 40px;
+}
+
+.pets-details .pet .About-me h1
+{
+  width: 80%;
+  padding: 10px 0;
+  border-bottom: solid black 2px;
+}
+
+.pets-details .pet .About-me h6
+{
+  margin: 10px 0;
+  padding-right: 5%;
+  font-size: 1.7rem;
+}
+
+.pets-details .pet button
+{
+  background-color:#6167FF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 25px rgba(0, 0, 0, 0.25));
+  border-radius: 40px;
+  border: none;
+  margin-left: 75%;
+  padding: 20px 55px;
+  color: #FFF;
+}

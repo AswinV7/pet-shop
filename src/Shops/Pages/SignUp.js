@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../../CSS/Shop/SignUp.css'
 import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import Image1 from '../../Images/profile2.png'

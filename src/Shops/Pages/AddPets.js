@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../CSS/Shop/AddPets.css'
 import { useState } from 'react'
 import postData from '../../Services/postData'
 import Header from '../../Shared/Components/Header'
@@ -37,7 +38,7 @@ const AddPets = () => {
                 <h2>ADD PET DETAILS</h2>
                 <div className = "add-details">
                     <div className = "add-img">
-                        <div className = "image"></div>
+                        <div className = "image-u"></div>
                         <button>UPLOAD IMAGE</button>
                     </div>
                     <form className = "add-form" onSubmit = {petAddCall}>

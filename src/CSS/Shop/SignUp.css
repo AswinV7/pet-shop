@@ -1,0 +1,127 @@
+.Header input
+{
+  display: none;
+}
+
+.signup-page
+{
+  font-family: Ramaraja;
+  margin: 5rem 25rem;
+  text-align: center;
+  background: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signup-form label
+{
+  display: flex;
+  margin: 10px 80px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 40px;
+}
+
+.signup-form img
+{
+  width: 8%;
+}
+
+.signup-form input
+{
+  outline: none;
+  background:#FCFCFC;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  margin: 5px 0;
+}
+
+.signup-form button
+{
+  background-color:#7B61FF;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  border: none;
+  color: #FFF;
+  margin-left: 42%;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 35px;
+}
+
+.al
+{
+  display: flex;
+  justify-content: center;
+}
+
+.signin-here
+{
+  padding: 0 10px;
+  cursor: pointer;
+  color: #6167FF;
+}
+
+@media screen and (max-width: 1024px) 
+{
+  .signup-page
+  {
+    margin: 8rem 15rem;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .signup-page
+  {
+    margin: 8rem 10rem;
+  }
+  .SignUp .m
+  {
+    display: none;
+  }
+  .SignUp .z
+  {
+    display: none;
+  }
+} 
+
+@media screen and (max-width: 480px)
+{
+  .signup-page
+  {
+    margin: 3rem 2rem;
+  }
+
+  .signup-form label
+  {
+    margin: 0.5rem 2rem;
+  }
+
+  .al
+  {
+    font-size: .8rem;
+  }
+} 
+
+@media screen and (max-width: 360px)
+{
+  .signup-page
+  {
+    margin: 3rem 1.2rem;
+  }
+
+  .signup-form label
+  {
+    margin: 0.5rem 1.5rem;
+  }
+
+  .al
+  {
+    font-size: .6rem;
+  }
+} 

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../CSS/Shop/Shops.css'
 import Button from '../../Shared/Components/Button'
 import Header from '../../Shared/Components/Header'
 import Image from '../../Images/profile1.png'

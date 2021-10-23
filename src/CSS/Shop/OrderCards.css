@@ -1,0 +1,118 @@
+.Order-card
+{
+  box-shadow: 3px 4px 19px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+
+.order-chat
+{
+  display: flex;
+  justify-content: space-between;
+  border-top: solid #7B61FF 2px;
+}
+
+.order-details
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-pet
+{
+  display: flex;
+}
+
+.order-status
+{
+  display: flex;
+}
+
+.order-status h1
+{
+  color: #7B61FF;
+}
+
+.order-status .pending
+{
+  color: #E3A753;
+}
+
+.custm-details
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custm-details h1
+{
+  color: #7B61FF;
+}
+
+.order-chat button
+{
+  background-color: #7B61FF;
+  border: none;
+  border-radius: 40px;
+  margin: 6% 0;
+  padding: 0 3.5%;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px)
+{
+    .order-details
+    {
+        font-size: .8rem;
+    }
+
+    .order-status
+    {
+        font-size: .5rem;
+    }
+
+    .custm-details 
+    {
+        font-size: .6rem;
+    }
+    .order-chat
+    {
+        font-size: .8rem;
+    }
+
+    .order-chat button
+    {
+        margin: 35px 0;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px)
+{
+    .order-details
+    {
+        font-size: .5rem;
+    }
+
+    .order-status
+    {
+        font-size: .3rem;
+    }
+
+    .custm-details 
+    {
+        font-size: .4rem;
+    }
+    .order-chat
+    {
+        font-size: .5rem;
+    }
+
+    .order-chat button
+    {
+        font-size: .5rem;
+        margin: 20px 0;
+    }
+}

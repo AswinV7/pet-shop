@@ -11,6 +11,9 @@ import Login from './Shops/Pages/Login';
 import AddPets from './Shops/Pages/AddPets';
 import Profile from './Shops/Pages/Profile';
 import SignIn from './Users/Pages/SignIn';
+import Orders from './Shops/Pages/Orders';
+import MyPets from './Shops/Pages/MyPets';
+import Menu from './Shared/Components/Menu';
 
 const App = () => {
   return (
@@ -27,6 +30,9 @@ const App = () => {
             <Route path = "/add-pet" component = {AddPets} exact />
             <Route path = "/profile" component = {Profile} exact />
             <Route path = "/signin" component = {SignIn} exact />
+            <Route path = "/orders" component = {Orders} exact />
+            <Route path = "/mypets" component = {MyPets} exact />
+            <Route path = "/menu" component = {Menu} exact />
           </Switch>
         </Router>
       <Footer />

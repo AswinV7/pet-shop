@@ -1,0 +1,64 @@
+.Header input
+{
+  display: none;
+}
+
+.mypets
+{
+  display: flex;
+}
+
+.mypets-details 
+{
+  width: 80%;
+}
+
+.mypets-h
+{
+  display: flex;
+  justify-content: space-between;
+  padding: 4%;
+}
+
+.mypets-h h1
+{
+  width: 70%;
+  color: #231248;
+  padding: 10px 0;
+  border-bottom: solid black 3px;
+}
+
+.mypets-h button
+{
+  border: none;
+  border-radius: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 3%;
+  color: white;
+  margin: 3.5% 0;
+  background-color: #7B61FF;
+}
+
+@media screen and (max-width: 768px)
+{
+  .mypets-h 
+  {
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 480px)
+{
+  .mypets-h 
+  {
+    font-size: .6rem;
+  }
+
+  .mypets-h button
+  {
+    font-size: .8rem;
+    margin: 20px 0;
+  }
+}
+

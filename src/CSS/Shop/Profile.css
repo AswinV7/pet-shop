@@ -1,0 +1,190 @@
+.Header input
+{
+  display: none;
+}
+
+.profile
+{
+  display: flex;
+}
+
+.profile-button
+{
+  width: 20%;
+  background-color: #231248;
+  color: white;
+  text-align: center;
+}
+
+.shop-details
+{
+  margin: 30px;
+}
+
+.shop-pic
+{
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 60px;
+}
+.options
+{ 
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0;
+}
+
+ .options .bt
+{
+  background: #E5E5E5;
+  color: #231248;
+  margin-left: 40px;
+}
+
+.options button
+{
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.options button:hover
+{
+  background: #E5E5E5;
+  color: #231248;
+  transition: 1.7s;
+  margin-left: 40px;
+}
+
+.profile-details
+{
+  display: flex;
+  width: 75%;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.details
+{
+  width: 75%;
+  padding: 10px;
+}
+
+.basic-details
+{
+  color: #7B61FF;
+  border-bottom: solid #000 2px ;
+}
+
+.details-shop
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-shop button
+{
+  background-color: #C4C4C4;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-bottom: 24%;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+
+ .profile-image
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.image
+{
+  width: 75%;
+  height: 200px;
+  border: solid black 2px;
+}
+
+.profile-image button
+{
+  width: 77%;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 8px 0;
+  margin: 0;
+  background-color: #7B61FF;
+}
+
+@media screen and (max-width: 1024px)
+{
+
+  .shop-pic
+  {
+    height: 50px;
+    padding: 50px;
+  }
+
+  .options button
+  {
+    font-size: 1.2rem;
+  }
+
+  .details-shop button
+  {
+    margin-bottom: 10rem;
+  }
+
+  .image
+  {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .profile-button
+  {
+    display: none;
+  }
+
+  .profile-details
+  {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px)
+{
+  .profile-details
+  {
+    font-size: .5rem;
+  }
+
+  .image
+  {
+    height: 80px;
+  }
+
+  .profile-image button
+  {
+    font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 360px)
+{
+
+}
