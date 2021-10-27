@@ -10,7 +10,7 @@ const ShopCard = ({name, info, location, shopid}) => {
             <div className="shops-images">
                 <img src = {image1} alt = "" />
             </div>
-            <div className="info">
+            <div className="shopcard-info">
                 <h3 className = "shops-name">{name}</h3>
                 <h4 className = "shops-info">{info}</h4>
                 <h4 className = "shops-location">{location}</h4>

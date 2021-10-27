@@ -1,16 +1,29 @@
 import React from 'react'
 import '../../CSS/Shop/Login.css'
 import { useState } from 'react'
+import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import Image from '../../Images/profile2.png'
 import Image1 from '../../Images/lock.png'
+import postData from '../../Services/postData'
 
 const Login = () => {
+    const history = useHistory()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const LoginCall = (e) => {
         e.preventDefault()
+        const data = {
+            email: email,
+            password: password
+        }
+        postData('/login', data)
+        .then((result) =>{
+            localStorage.setItem('token',result.token.split(' ')[1])
+            if(result.status)
+            history.push('/profile');
+        })
     }
 
     return (
@@ -30,11 +43,11 @@ const Login = () => {
                     <div className = "forget-password">
                         <h5>FORGET PASSWORD ? </h5> 
                         <h5 className = "click-here"> CLICK HERE</h5>
-                        <button type = "submit">LOGIN</button>
+                        <button type = "submit" >LOGIN</button>
                     </div>
                     <div className = "create-account">
                         <h5>CREATE AN ACCOUNT ? </h5> 
-                        <h5 className = "click-here"> CLICK HERE</h5>
+                        <h5 className = "click-here" onClick = {() => history.push(`/signup`)}> CLICK HERE</h5>
                     </div>
                 </form>
             </div>

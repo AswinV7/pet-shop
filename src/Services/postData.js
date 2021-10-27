@@ -1,6 +1,13 @@
 import API_url from './API_url'
 
 async function postData(url = '', data = {}) {
+
+  let token = false;
+  if(localStorage.getItem('token'))
+  {
+    token = localStorage.getItem('token')
+  }
+       
     // Default options are marked with *
     const response = await fetch(API_url + url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -8,7 +15,8 @@ async function postData(url = '', data = {}) {
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': `beerr ${token}`
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       redirect: 'follow', // manual, *follow, error

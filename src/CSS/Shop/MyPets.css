@@ -40,6 +40,12 @@
   background-color: #7B61FF;
 }
 
+.mypets-card
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 @media screen and (max-width: 768px)
 {
   .mypets-h 

@@ -36,6 +36,8 @@ const SignUp = () => {
         postData('/signup', data)
         .then((result) =>{
             console.log(result);
+            if(result.status)
+            history.push('/login');
         })
     }
 
@@ -80,7 +82,7 @@ const SignUp = () => {
                         <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform Password" onChange = {(e) => {setConformPassword(e.target.value)}} />
                     </label>
                 
-                    <button type = "submit" onClick = {() => history.push(`/login`)}> SUBMIT</button>
+                    <button type = "submit" > SUBMIT</button>
                 </form>
                 <div className = "al">
                     <h5>ALREADY HAVE AN ACCOUNT?</h5> 

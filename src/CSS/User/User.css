@@ -3,99 +3,82 @@
   font-family: Ramaraja;
 }
 
-.User .featured-title
+.featured-title
 {
   text-align : center;
   color: #231248;
   font-size: 2.5rem;
 }
 
-.User .shop-title
+.shop-title
 {
   margin-left : 10%;
   color: #231248;
   font-size: 2.5rem;
 }
 
-.User .cards-pets
+.cards-pets
 {
   display : flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
   background: rgba(77, 57, 30, 0.15);
 }
 
-.User .cards-shops
+.cards-shops
 {
-  display : flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .featured-pet
 {
   display: flex;
-  text-align: center;
-  margin: 20px;
-  background: #FFFFFF;
-  box-shadow: 4px 5px 18px #231248;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 2px 2px;
 }
 
-.featured-pet .pet-image
-{
-  width: 80%;
-}
-
-.featured-pet .pet-image img
-{
-  height: 100%;
-}
-
-.featured-pet .info
+.pet-image 
 {
   width: 150px;
-  padding: 10px;
+  height: 120px;
 }
 
-.featured-pet .info .pet-name
+.pet-image img
 {
-  color: #231248;
-  margin: 0;
-  padding: 8px 0;
+  width: 150px;
+  height: 120px;
 }
 
-.featured-pet .info .pet-breed
+.pet-info
 {
-  color: #231248;
-  margin: 0;
-  padding: 8px 0;
+  text-align: center;
+  background-color: white;
+  padding: 0 10px;
 }
 
-.featured-pet .info .pet-price
+.pet-name,.pet-breed,.pet-price
 {
-  color: red;
+  margin: 5px;
 }
 
-.featured-pet .ff button
+.Am button
 {
-  background-color: #231248;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
   color: white;
-  box-shadow: 2px;
+  background-color: #231248;
+  border-radius: 40px;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
 }
 
-.featured-pet .ff button:hover
+.Am button:hover
 {
   background-color: white;
-  color: #231248;
-  box-shadow: 3px 3px 5px 5px;
-}
-
-.featured-pet .pet-image img
-{
-  width: 100%;
+  color: #000;
+  box-shadow: 2px 2px 3px 3px;
 }
 
 .shops-list
@@ -106,43 +89,117 @@
   padding: 10px;
 }
 
-.shops-list .info
-{
-  background: rgba(77, 57, 30, 0.15);
-  padding: 10px;
-}
-
-.shops-list .shops-images
+.shops-images
 {
   width: 180px;
+  height: 150px;
 }
 
-.shops-list .shops-images img
+.shops-images img
 {
   width: 100%;
-  height: 100%;
+  height: 150px;
 }
 
-.shops-list .info button
+.shopcard-info
 {
-  background-color: #231248;
-  padding: 10px 50px;
-  border-radius: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-  box-shadow: 2px;
+  background: rgba(77, 57, 30, 0.15);
+  padding: 10px 20px;
 }
 
-.shops-list .info button:hover
+.shops-name,.shops-info,.shops-location
+{
+  margin: 10px 5px;
+}
+
+.shopcard-info button
+{
+  color: white;
+  background-color: #231248;
+  border-radius: 40px;
+  font-weight: bold;
+  border: none;
+  padding: 5px 20px;
+}
+
+.shopcard-info button:hover
 {
   background-color: white;
-  color: #231248;
-  box-shadow: 3px 3px 5px 5px;
+  color: #000;
+  box-shadow: 2px 2px 3px 3px;
+
 }
 
-.shops-list .info .shops-location
+@media screen and (max-width: 1024px) 
 {
-  font-weight: normal;
+  .shops-images 
+  {
+    width: 50%;
+  }
+
+}
+
+@media screen and (max-width: 768px) 
+{
+
+  .shopcard-info
+  {
+    font-size: .9rem;
+    padding: 10px;
+  }
+
+  .pet-info
+  {
+    font-size: .8rem;
+  }
+
+  .pet-image
+  {
+    width: 65%;
+  }
+
+  .Am button
+  {
+    font-size: .5rem;
+  }
+
+  .User .m
+  {
+    display: none;
+  }
+
+  .User .z
+  {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) 
+{
+  .cards-pets
+  {
+    flex-direction: column;
+  }
+  .cards-shops
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pet-image
+  {
+    width: 65%;
+  }
+
+  .shops-list
+  {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) 
+{
+  
 }

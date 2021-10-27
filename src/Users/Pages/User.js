@@ -3,17 +3,23 @@ import '../../CSS/User/User.css'
 import Header from '../../Shared/Components/Header'
 import Card from '../Components/Card'
 import ShopCard from '../../Shops/Components/ShopCard'
-import shops from '../../Data/shops'
 import API_url from '../../Services/API_url'
 
 const User = () => {
 
     const [pets, setPets] = useState([])
+    const [shops, setShops] = useState([])
     
     useEffect(() => {
-        fetch(API_url + '/shop/pets')
+        fetch(API_url + '/pets')
         .then(res => res.json())
         .then(result => setPets(result))
+    }, [])
+
+    useEffect(() => {
+        fetch(API_url + '/shops')
+        .then(res => res.json())
+        .then(result => setShops(result))
     }, [])
 
     return (
@@ -25,7 +31,7 @@ const User = () => {
             </div>
             <h2 className = "shop-title">Our Shops</h2>
             <div className="cards-shops">
-                {shops.map((shop) => (shop.pin === 546546) && <ShopCard key = {shop.id} name = {shop.name} info = {shop.info} location = {shop.location} shopid = {shop.id}/>) }
+                {shops.map((shop) => <ShopCard key = {shop._id} name = {shop.shopName} info = {shop.phone} location = {shop.shopLocation} shopid = {shop._id}/>) }
             </div>
             
         </div>
