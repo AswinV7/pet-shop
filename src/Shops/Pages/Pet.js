@@ -5,12 +5,16 @@ import Header from '../../Shared/Components/Header'
 import Image from '../../Images/puppy.png'
 import API_url from '../../Services/API_url'
 import { useParams } from 'react-router'
+import { useHistory } from 'react-router'
+import SignIn from '../../Users/Pages/SignIn'
 
 const Pet = () => {
 
+    const history = useHistory()
     const idd = useParams()
     const pid = idd.petid
     const [pet, setPet] = useState([])
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         fetch(API_url + `/pet/${pid}`)
@@ -21,6 +25,7 @@ const Pet = () => {
     return (
         <div className = "pets-details">
             <Header />
+            { open && <SignIn Close = {setOpen} />}
             <div className="pet">
                 <div className = "pets-info">
                     <div className="p-image">
@@ -37,13 +42,13 @@ const Pet = () => {
                     </div>
                 </div>
                 <div className="">
-                    <h5>{pet.petPrice}</h5>
+                    <h5>Price : {pet.petPrice}</h5>
                 </div>
                 <div className = "About-me">
                     <h1>ABOUT MY STORY</h1>
                     <h6>{pet.petDescription}</h6>
                 </div>
-                <Button text = "ADOPT " onClick = {() => {}} />
+                <Button text = "ADOPT " onClick = {() => setOpen(true)} />
             </div>
         </div>
     )

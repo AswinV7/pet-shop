@@ -6,11 +6,13 @@ import Header from '../../Shared/Components/Header'
 import Image from '../../Images/profile2.png'
 import Image1 from '../../Images/lock.png'
 import postData from '../../Services/postData'
+import ForgetPassword from '../../Shared/ForgetPassword'
 
 const Login = () => {
     const history = useHistory()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [open, setOpen] = useState(false);
 
     const LoginCall = (e) => {
         e.preventDefault()
@@ -20,7 +22,7 @@ const Login = () => {
         }
         postData('/login', data)
         .then((result) =>{
-            localStorage.setItem('token',result.token.split(' ')[1])
+            localStorage.setItem('token',result.token)
             if(result.status)
             history.push('/profile');
         })
@@ -29,6 +31,7 @@ const Login = () => {
     return (
         <div className = "Login">
             <Header />
+            { open && <ForgetPassword isClose = {setOpen} />}
             <div className = "login-page">
                 <h2>LOGIN</h2>
                 <form className = "login-form" onSubmit = {LoginCall}>
@@ -42,7 +45,7 @@ const Login = () => {
                     </label>
                     <div className = "forget-password">
                         <h5>FORGET PASSWORD ? </h5> 
-                        <h5 className = "click-here"> CLICK HERE</h5>
+                        <h5 className = "click-here" onClick = {() => {setOpen(true)}}> CLICK HERE</h5>
                         <button type = "submit" >LOGIN</button>
                     </div>
                     <div className = "create-account">

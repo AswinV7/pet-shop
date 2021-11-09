@@ -29,15 +29,17 @@
 .cards-shops
 {
   display: grid;
+  margin: 50px;
+  gap: 0 50px;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
 
 .featured-pet
 {
   display: flex;
   margin: 10px;
   padding: 10px;
-  box-shadow: 2px 2px 2px 2px;
 }
 
 .pet-image 

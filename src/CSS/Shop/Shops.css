@@ -5,25 +5,29 @@
 
 .shop-main
 {
-  margin: 5rem 25rem;
-  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: Ramaraja;
+  margin: 5rem 22rem;
+  padding: 6rem 0;
   background: #FCFCFC;
+  align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.250);
 }
 
 .shop-main button
 {
   display: flex;
   justify-content: flex-start;
+  width: 300px;
+  margin: .5rem 0;
+  padding: 15px;
   align-items: center;
   font-weight: bold;
   cursor: pointer;
-  width: 60%;
-  padding: 10px 0;
-  margin: 20px 7rem;
   color: white;
   background-color: #6167FF;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
@@ -34,29 +38,16 @@
 .shop-main button img
 {
   color: #FFF;
-  width: 10%;
-  margin: 0 50px;
+  width: 1.8rem;
+  margin: 0 3rem;
 }
 
-@media screen and (max-width: 1280px) 
-{
-    .shop-main
-    {
-        margin: 8rem 18rem;
-    }
-
-    .shop-main button 
-    {
-        margin: 1rem 8.5rem;
-    }
-
-}
 
 @media screen and (max-width: 1024px) 
 {
     .shop-main
     {
-        margin: 26rem 12rem;
+        margin: 8rem 15rem;
     }
 
     .shop-main button 
@@ -70,12 +61,13 @@
 {
     .shop-main
     {
-        margin: 16rem 10rem;
+        margin: 5rem 8rem;
     }
 
     .shop-main button 
     {
         margin: 1rem 5.5rem;
+        font-size: .8rem;
     }
     .shop-overview .m
     {
@@ -93,18 +85,22 @@
 
     .shop-main
     {
-        margin: 15rem 5rem;
-        padding: 5rem .5rem;
+        margin: 3rem 4rem;
+        padding: 2rem 0;
     }
 
     .shop-main button 
     {
-        margin: 1rem 3rem;
+        margin: .5rem;
+        padding: 5px 20px;
+        width: 120px;
+        font-size: .6rem;
     }
 
     .shop-main button img
     {
-        margin: 0 20px;
+        width: 1rem;
+        margin: 0 10px;
     }
 
 }
@@ -114,13 +110,14 @@
 
     .shop-main
     {
-        margin: 10rem 3.8rem;
-        padding: 5rem .5rem;
+        margin: 3rem;
+        padding: 3rem .5rem;
     }
 
     .shop-main button 
     {
-        margin: 1rem 2.8rem;
+        margin: .3rem;
         font-size: .6rem;
     }
 }
+

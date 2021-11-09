@@ -92,7 +92,7 @@
   .p-image img
   {
     margin-top: 3rem;
-    width: 100%;
+    width: 25rem;
   }
 }
 
@@ -119,6 +119,12 @@
     font-size: .8rem;
   }
 
+  .p-image img
+  {
+    margin-top: 2rem;
+    width: 20rem;
+  }
+
 }
 
 @media screen and (max-width: 480px)
@@ -142,6 +148,7 @@
   .p-image img
   {
     margin-top: 2rem;
+    width: 10rem;
   }
 
   .pet button
@@ -157,7 +164,8 @@
 
   .p-image img
   {
-    margin-top: 1.4rem;
+    margin-top: 1.2rem;
+    width: 8rem;
   }
 
   .pet-header
@@ -183,5 +191,14 @@
   {
     padding: .5rem 1rem;
     font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 360px)
+{
+  .p-image img
+  {
+    margin-top: 1.2rem;
+    width: 5rem;
   }
 }

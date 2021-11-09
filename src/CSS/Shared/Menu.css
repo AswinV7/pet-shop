@@ -6,7 +6,7 @@
     background-color: #231248;
     top: 47px;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 47px) ;
 }
 
 .MenuClose
@@ -17,7 +17,7 @@
     background-color: #231248;
     top: 47px;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 47px) ;
 }
 
 .menu-details

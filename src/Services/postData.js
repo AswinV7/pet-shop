@@ -6,6 +6,7 @@ async function postData(url = '', data = {}) {
   if(localStorage.getItem('token'))
   {
     token = localStorage.getItem('token')
+    console.log(token);
   }
        
     // Default options are marked with *
@@ -16,7 +17,7 @@ async function postData(url = '', data = {}) {
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
         'Content-Type': 'application/json',
-        'authorization': `beerr ${token}`
+        'authorization': `Bearer ${token.split(' ')[1]}`
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       redirect: 'follow', // manual, *follow, error

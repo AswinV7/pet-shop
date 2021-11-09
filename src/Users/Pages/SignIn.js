@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import '../../CSS/User/SignIn.css'
-import Header from '../../Shared/Components/Header'
 import Image1 from '../../Images/profile2.png'
 import Image3 from '../../Images/phone.png'
-import Image4 from '../../Images/lock.png'
+import VerifyPhone from '../../Shared/Components/VerifyPhone'
 
-const SignIn = () => {
+const SignIn = ({Close}) => {
     
     const [userName, setUserName] = useState("")
     const [phone, setPhone] = useState("")
-    const [password, setPassword] = useState("")
-    const [conformPassword, setConformPassword] = useState("")
+    const [open, setOpen] = useState(false);
 
     const signInCall = (e) => 
     {
@@ -18,17 +16,18 @@ const SignIn = () => {
         const data = {
             userName: userName,
             phone: phone,
-            password: password,
-            conformPassword: conformPassword
         }
         console.log(data);
     }
 
     return (
         <div className = "SignIn">
-            <Header />
+            { open && <VerifyPhone Close = {setOpen} />}
             <div className = "signin-page">
-                <h2>SIGN IN</h2>
+                <div className = "closebt">
+                    <button  onClick = {() => Close(false)} >X</button>
+                </div>
+                <h1>SIGN IN</h1>
                 <form className="signin-form" onSubmit = {signInCall}>
                     <label htmlFor = "user-name" >
                         <img src = {Image1} alt="" />
@@ -39,18 +38,7 @@ const SignIn = () => {
                         <img src = {Image3} alt="" />
                         <input type="text" name = "phone" value = {phone} placeholder = "Phone" onChange = {(e) => {setPhone(e.target.value)}} />
                     </label>    
-
-                    <label htmlFor = "password" >
-                        <img src = {Image4} alt="" />
-                        <input type="password" name = "password" value = {password} placeholder = "Password" onChange = {(e) => {setPassword(e.target.value)}} />
-                    </label>
-                
-                    <label htmlFor = "conform-password" >
-                        <img src = {Image4} alt="" />
-                        <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform Password" onChange = {(e) => {setConformPassword(e.target.value)}} />
-                    </label>
-                
-                    <button type = "submit" > SUBMIT</button>
+                    <button type = "submit" onClick = {() => {setOpen(true)}} > SUBMIT</button>
                 </form>
                 
             </div>

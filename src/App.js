@@ -14,6 +14,10 @@ import SignIn from './Users/Pages/SignIn';
 import Orders from './Shops/Pages/Orders';
 import MyPets from './Shops/Pages/MyPets';
 import Menu from './Shared/Components/Menu';
+import PopUp from './Shared/PopUp';
+import ForgetPassword from './Shared/ForgetPassword';
+import EnterOtp from './Shared/Components/EnterOtp';
+import ResetPassword from './Shared/Components/ResetPassword';
 
 const App = () => {
   return (
@@ -33,6 +37,10 @@ const App = () => {
             <Route path = "/orders" component = {Orders} exact />
             <Route path = "/mypets" component = {MyPets} exact />
             <Route path = "/menu" component = {Menu} exact />
+            <Route path = "/popup" component = {PopUp} exact />
+            <Route path = "/forget-password" component = {ForgetPassword} exact />
+            <Route path = "/otp" component = {EnterOtp} exact />
+            <Route path = "/reset-password" component = {ResetPassword} exact />
           </Switch>
         </Router>
       <Footer />
