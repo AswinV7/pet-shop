@@ -11,16 +11,21 @@ const PopUp = ({Close}) => {
     const [pin, setPin] = useState("")
 
     const submitCall = (e) => {
+        e.preventDefault()
         const data = {
             shopName: shopName,
             shopLocation: shopLocation,
             pin: pin
         }
-        postData('/shop/update', data)
-        .then((result) =>{
-            console.log(result);
-            if(result.status)
-            history.push(`/profile`)
+        if(data == null)
+            console.log("err");
+        else
+            postData('/shop/update', data)
+            .then((result) =>{
+                console.log(result);
+                if(result.status)
+                    history.push(`/mypets`)
+
         })
     }
 

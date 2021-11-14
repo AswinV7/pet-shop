@@ -18,6 +18,11 @@ const MyPets = () => {
         
     },[])
 
+    const logOut = () =>{
+        localStorage.removeItem("token");
+        history.push("/login");
+    }
+
     return (
         <div className = "Mypets">
             <Header />
@@ -32,7 +37,7 @@ const MyPets = () => {
                         <button className = "bt" >MY PETS</button>
                         <button onClick = {() => history.push(`/orders`)}>MY ORDERS</button>
                     </div>
-                    
+                    <button className = "lg-bt" onClick = {logOut} >LOGOUT</button>
                 </div>
                 <div className = "mypets-details">
                     <div className = "mypets-h">

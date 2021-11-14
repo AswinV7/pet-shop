@@ -22,6 +22,11 @@ const Profile = () => {
         setOpen(!open)
     }
 
+    const logOut = () =>{
+        localStorage.removeItem("token");
+        history.push("/login");
+    }
+
     return (
         <div className = {"Profile"}>
             <Header  />
@@ -37,7 +42,7 @@ const Profile = () => {
                         <button onClick = {() => history.push(`/mypets`)}>MY PETS</button>
                         <button onClick = {() => history.push(`/orders`)} >MY ORDERS</button>
                     </div>
-                    
+                    <button className = "lg-bt" onClick = {logOut} >LOGOUT</button>
                 </div>
                 <div className = "profile-details">
                     <div className = "details">

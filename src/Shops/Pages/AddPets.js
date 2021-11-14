@@ -3,6 +3,7 @@ import '../../CSS/Shop/AddPets.css'
 import { useState } from 'react'
 import postData from '../../Services/postData'
 import Header from '../../Shared/Components/Header'
+import FileUpload from '../../Services/FileUplod'
 
 const AddPets = () => {
 
@@ -12,6 +13,7 @@ const AddPets = () => {
     const [petDescription, setpetDescription] = useState("")
     const [petPrice, setpetPrice] = useState("")
     const [shopOwner, setshopOwner] = useState("")
+    const [selectedImage, setSelectedImage] = useState("")
 
     const petAddCall = (e) => 
     {
@@ -30,6 +32,12 @@ const AddPets = () => {
             console.log(result);
         })
     }
+
+    const upload = () => {
+        const formData = new FormData()
+            formData.append('files', selectedImage)
+        FileUpload('/imageupload', formData)
+    }
     
     return (
         <div className = "Add-Pet">
@@ -38,8 +46,8 @@ const AddPets = () => {
                 <h2>ADD PET DETAILS</h2>
                 <div className = "add-details">
                     <div className = "add-img">
-                        <div className = "image-u"></div>
-                        <button>UPLOAD IMAGE</button>
+                        <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
+                        <button onClick = {upload} >UPLOAD IMAGE</button>
                     </div>
                     <form className = "add-form" onSubmit = {petAddCall}>
                         <label htmlFor="pet-name">

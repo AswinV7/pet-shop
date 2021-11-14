@@ -8,6 +8,11 @@ const Orders = () => {
 
     const history = useHistory()
 
+    const logOut = () =>{
+        localStorage.removeItem("token");
+        history.push("/login");
+    }
+
     return (
         <div className = "Orders">
             <Header />
@@ -22,7 +27,7 @@ const Orders = () => {
                         <button onClick = {() => history.push(`/mypets`)}>MY PETS</button>
                         <button className = "bt" >MY ORDERS</button>
                     </div>
-                    
+                    <button className = "lg-bt" onClick = {logOut} >LOGOUT</button>
                 </div>
                 <div className = "orders-details">
                     <h1 className ="order-h">ORDERS</h1>

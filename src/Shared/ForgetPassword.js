@@ -14,7 +14,6 @@ const ForgetPassword = ({isClose}) => {
             phone: phone
         }
         console.log(data);
-        postData('/forgotpassword', data)
     }
 
     return (
