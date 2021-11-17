@@ -3,7 +3,7 @@ import '../CSS/Shared/ForgetPassword.css'
 import EnterOtp from './Components/EnterOtp'
 import postData from '../Services/postData'
 
-const ForgetPassword = ({isClose}) => {
+const ForgetPassword = ({isClose, }) => {
 
     const [phone, setPhone] = useState("")
     const [open, setOpen] = useState(false);
@@ -13,25 +13,26 @@ const ForgetPassword = ({isClose}) => {
         const data = {
             phone: phone
         }
-        console.log(data);
+        postData('/forgotpassword', data)
+        .then((result) =>{
+            console.log(result);
+        if(result.status)
+            setOpen(true)
+        })
     }
 
     return (
         <div className = "ForgetPassword">
-            { open && <EnterOtp Close = {setOpen} />}
+            { open && <EnterOtp Close = {setOpen} phone = {phone} />}
             <div className = "forget-container">
                 <div className = "closebt">
                     <button  onClick = {() => isClose(false)} >X</button>
                 </div>
                 <div className = "details-a">
                     <h1>Forget Password</h1>
-                    <h3>Enter your phone number</h3>
-                    <form className = "forget-form" onSubmit = {forgetCall} >
-                        <label htmlFor = "phone" >
-                            <input type="text" name = "phone" value = {phone} placeholder = "Phone Number" onChange = {(e) => {setPhone(e.target.value)}} />
-                        </label>
-                    </form>
-                    <button type = "submit"  >Continue</button>
+                    <h3>Enter your phone number</h3> 
+                    <input type="text" name = "phone" value = {phone} placeholder = "Phone Number" onChange = {(e) => {setPhone(e.target.value)}} />
+                    <button onClick = {forgetCall}  >Continue</button>
                 </div>
             </div>
         </div>

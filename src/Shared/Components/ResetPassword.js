@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import '../../CSS/Shared/ResetPassword.css'
+import postData from '../../Services/postData'
 
-const ResetPassword = ({isClose}) => {
+const ResetPassword = ({isClose, phone}) => {
 
     const [password, setPassword] = useState("")
     const [conformPassword, setConformPassword] = useState("")
     const history = useHistory()
 
-    const forgetCall = (e) => {
-        e.preventDefault()
+    const resetCall = (e) => {
         const data = {
             password: password,
-            conformPassword: conformPassword
+            conformPassword: conformPassword,
+            phone
         }
+        postData('/forgotpassword/password-reset', data)
+        .then((result) =>{
+            console.log(result);
+        if(result.status)
+        history.push('/shops')
+        })
     }
 
     return (
@@ -24,15 +31,9 @@ const ResetPassword = ({isClose}) => {
             <div className = "details-a">
                 <h1>New Password</h1>
                 <p>Please enter new password which is not used else where</p>
-                <form className = "reset-form">
-                    <label htmlFor = "password" >
-                        <input type="password" name = "password" value = {password} placeholder = "New Password" onChange = {(e) => {setPassword(e.target.value)}} />
-                    </label>
-                    <label htmlFor = "conform-password" >
-                        <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform New Password" onChange = {(e) => {setConformPassword(e.target.value)}} />
-                    </label>
-                </form>
-                <button onClick = {() => history.push(`/shops`)} >Change</button>
+                <input type="password" name = "password" value = {password} placeholder = "New Password" onChange = {(e) => {setPassword(e.target.value)}} />
+                <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform New Password" onChange = {(e) => {setConformPassword(e.target.value)}} />
+                <button onClick = {resetCall} >Change</button>
             </div>
         </div>
     )

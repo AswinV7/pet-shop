@@ -5,16 +5,15 @@ import Header from '../../Shared/Components/Header'
 import Image from '../../Images/puppy.png'
 import API_url from '../../Services/API_url'
 import { useParams } from 'react-router'
-import { useHistory } from 'react-router'
 import SignIn from '../../Users/Pages/SignIn'
 
 const Pet = () => {
 
-    const history = useHistory()
     const idd = useParams()
     const pid = idd.petid
     const [pet, setPet] = useState([])
     const [open, setOpen] = useState(false);
+    const Sname = pet.shopOwner
 
     useEffect(() => {
         fetch(API_url + `/pet/${pid}`)
@@ -25,7 +24,7 @@ const Pet = () => {
     return (
         <div className = "pets-details">
             <Header />
-            { open && <SignIn Close = {setOpen} />}
+            { open && <SignIn Close = {setOpen} Sname = {Sname} Pname = {pet.petName} Pbreed = {pet.petBreed} Pprice = {pet.petPrice} />}
             <div className="pet">
                 <div className = "pets-info">
                     <div className="p-image">

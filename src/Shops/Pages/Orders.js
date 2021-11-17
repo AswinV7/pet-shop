@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/Order.css'
 import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import OrdersCard from '../Components/OrdersCard'
+import API_url from '../../Services/API_url'
 
 const Orders = () => {
 
     const history = useHistory()
+    const token = localStorage.getItem('token')
+    const [orders, setOrders] = useState([])
+
+    useEffect(() => {
+        fetch(API_url + `/myorders`, {headers: {'authorization': `Bearer ${token.split(' ')[1]}`}})
+        .then(res => res.json())
+        .then(result => setOrders(result))
+        
+    },[])
 
     const logOut = () =>{
         localStorage.removeItem("token");
@@ -32,7 +42,7 @@ const Orders = () => {
                 <div className = "orders-details">
                     <h1 className ="order-h">ORDERS</h1>
                     <div className = "orders-card">
-                        <OrdersCard />
+                        {orders.map((order) => <OrdersCard key = {order._id} petName = {order.petName} petBreed = {order.petBreed}   petPrice = {order.petPrice} userName = {order.userName} phone = {order.phone} />) }
                     </div>
                 </div>
             </div>

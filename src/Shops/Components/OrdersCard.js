@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../CSS/Shop/OrderCards.css'
 
-const OrdersCard = () => {
+const OrdersCard = ({petName, petBreed, petPrice, userName, phone}) => {
     return (
         <div className = "Order-card">
             <div className = "order-card">
@@ -9,8 +9,8 @@ const OrdersCard = () => {
                     <div className = "order-pet">
                         <img src="" alt="" />
                         <div>
-                            <h2>Name :</h2>
-                            <h2>Breed :</h2>
+                            <h2>Name : {petName}</h2>
+                            <h2>Breed : {petBreed}</h2>
                         </div>
                     </div>
                     <div className = "order-status">
@@ -25,8 +25,8 @@ const OrdersCard = () => {
             </div>
             <div className = "order-chat">
                 <div>
-                    <h2>Name :</h2>
-                    <h2>Phone No:</h2>
+                    <h2>Name : {userName}</h2>
+                    <h2>Phone No : {phone}</h2>
                 </div>
                 <button>Chat</button>
             </div>

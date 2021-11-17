@@ -11,7 +11,6 @@ const Shop = () => {
     const sid = params.shopid
     const [shop, setShop] = useState([])
     const [pets, setPets] = useState([])
-    const dd = shop.shopName
 
     useEffect(() => {
         fetch(API_url + `/shop/${sid}`)
@@ -46,7 +45,7 @@ const Shop = () => {
                 </ul>
             </div>
             <div className = "shop-pets">
-                {pets.map((pet) => <Card key = {pet._id} name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
+                {pets.map((pet) => <Card key = {pet._id}  name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
             </div>
         </div>
     )

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import '../../CSS/Shared/EnterOtp.css'
 import ResetPassword from './ResetPassword'
+import postData from '../../Services/postData'
 
-const EnterOtp = ({Close}) => {
+const EnterOtp = ({Close , phone}) => {
 
     const [otp, setOtp] = useState("")
     const [open, setOpen] = useState(false);
@@ -10,25 +11,31 @@ const EnterOtp = ({Close}) => {
     const otpCall = (e) => {
         e.preventDefault()
         const data = {
-            otp: otp
+            otp,
+            phone
+
         }
+        postData('/forgotpassword/otp-verification', data)
+        .then((result) =>{
+            localStorage.setItem('token',result.token)
+            console.log(result);
+            if(result.status)
+            setOpen(true)
+
+        })
     }
 
     return (
         <div className = "OTP">
-            { open && <ResetPassword isClose = {setOpen} />}
+            { open && <ResetPassword isClose = {setOpen}  phone = {phone} />}
             <div className = "closebt">
                 <button  onClick = {() => Close(false)} >X</button>
             </div>
             <div className = "details-a">
                 <h1>Enter OTP</h1>
                 <h3>Check your phone for OTP</h3>
-                <form className = "OTP-form">
-                    <label htmlFor = "otp" >
-                        <input type="text" name = "otp" value = {otp} placeholder = "OTP" onChange = {(e) => {setOtp(e.target.value)}} />
-                    </label>
-                </form>
-                <button onClick = {() => {setOpen(true)}} >Verify</button>
+                <input type="text" name = "otp" value = {otp} placeholder = "OTP" onChange = {(e) => {setOtp(e.target.value)}} />
+                <button onClick = {otpCall} >Verify</button>
             </div>
         </div>
     )
