@@ -1,8 +1,3 @@
-.Header input
-{
-  display: none;
-}
-
 .add-pets
 {
   font-family: Ramaraja;
@@ -77,6 +72,7 @@
   background: #7B61FF;
 }
 
+
 @media screen and (max-width: 1024px)
 {
   .add-pets
@@ -89,8 +85,15 @@
 {
   .add-pets
   {
-    margin: 3rem 5rem;
+    margin: 3rem ;
+    height: 420px;
   }
+
+  .add-img
+  {
+    width: 120px;
+  }
+
 }
 
 @media screen and (max-width: 480px)
@@ -103,7 +106,7 @@
   }
   .add-pets
   {
-    margin: 5rem 3rem;
+    margin: 5rem 2rem;
     padding: 50px 0;
   }
 
@@ -153,5 +156,22 @@
   {
     width: 14rem;
   }
+
+}
+
+@media screen and (max-width: 280px)
+{
+
+  .add-pets
+  {
+    margin: 50px 10px;
+  }
+
+  .add-img
+  {
+    width: 220px;
+  }
+
+  
 
 }

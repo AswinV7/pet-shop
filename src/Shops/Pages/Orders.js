@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/Order.css'
 import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
+import image1 from '../../Images/Home1.png'
 import OrdersCard from '../Components/OrdersCard'
 import API_url from '../../Services/API_url'
 
@@ -10,13 +11,24 @@ const Orders = () => {
     const history = useHistory()
     const token = localStorage.getItem('token')
     const [orders, setOrders] = useState([])
+    const [profile, setProfile] = useState([])
+    let img = image1
+    let shopImage = profile.shopImage
+    let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
-        fetch(API_url + `/myorders`, {headers: {'authorization': `Bearer ${token.split(' ')[1]}`}})
+        fetch(API_url + `/myorders`, {headers: {'authorization': token}})
         .then(res => res.json())
         .then(result => setOrders(result))
         
     },[])
+
+    useEffect(() => {
+        fetch(API_url + `/profile`,{headers: {'authorization': token}})
+        .then(res => res.json())
+        .then(result => setProfile(result))
+    },[])
+
 
     const logOut = () =>{
         localStorage.removeItem("token");
@@ -25,12 +37,12 @@ const Orders = () => {
 
     return (
         <div className = "Orders">
-            <Header />
+            <Header  shopName = {profile.shopName}/>
             <div className = "orders">
                 <div className = "profile-button">
                     <div className = "shop-details">
-                        <div className = "shop-pic"></div>
-                        <h3>shopname</h3>
+                        <img className = "shop-pic" src = {shopImage ? image : img} alt = "" /> 
+                        <h3>{profile.shopName}</h3>
                     </div>
                     <div className = "options">
                         <button onClick = {() => history.push(`/profile`)} >PROFILE</button>
@@ -42,7 +54,7 @@ const Orders = () => {
                 <div className = "orders-details">
                     <h1 className ="order-h">ORDERS</h1>
                     <div className = "orders-card">
-                        {orders.map((order) => <OrdersCard key = {order._id} petName = {order.petName} petBreed = {order.petBreed}   petPrice = {order.petPrice} userName = {order.userName} phone = {order.phone} />) }
+                        {orders.map((order) => <OrdersCard key = {order._id} petName = {order.petName} date = {order.date} petBreed = {order.petBreed}   petPrice = {order.petPrice} userName = {order.userName} phone = {order.phone} />) }
                     </div>
                 </div>
             </div>

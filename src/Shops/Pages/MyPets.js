@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/MyPets.css'
 import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
+import image1 from '../../Images/Home1.png'
 import API_url from '../../Services/API_url'
 import Card from '../../Users/Components/Card'
 
@@ -10,14 +11,25 @@ const MyPets = () => {
     const history = useHistory()
     const token = localStorage.getItem('token')
     const [pets, setPets] = useState([])
+    const [profile, setProfile] = useState([])
+    const profileId = profile._id 
+    let img = image1
+    let shopImage = profile.shopImage
+    let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
-        fetch(API_url + `/mypets`, {headers: {'authorization': `Bearer ${token.split(' ')[1]}`}})
+        fetch(API_url + `/mypets`, {headers: {'authorization': token}})
         .then(res => res.json())
         .then(result => setPets(result))
         
     },[])
 
+    useEffect(() => {
+        fetch(API_url + `/profile`,{headers: {'authorization': token}})
+        .then(res => res.json())
+        .then(result => setProfile(result))
+    },[])
+ 
     const logOut = () =>{
         localStorage.removeItem("token");
         history.push("/login");
@@ -25,12 +37,12 @@ const MyPets = () => {
 
     return (
         <div className = "Mypets">
-            <Header />
+            <Header shopName = {profile.shopName} />
             <div className = "mypets">
                 <div className = "profile-button">
                     <div className = "shop-details">
-                        <div className = "shop-pic"></div>
-                        <h3>shopname</h3>
+                        <img className = "shop-pic" src = {shopImage ? image : img} alt = "" /> 
+                        <h3>{profile.shopName}</h3>
                     </div>
                     <div className = "options">
                         <button onClick = {() => history.push(`/profile`)} >PROFILE</button>
@@ -42,10 +54,10 @@ const MyPets = () => {
                 <div className = "mypets-details">
                     <div className = "mypets-h">
                         <h1>MY PETS</h1>
-                        <button onClick = {() => history.push(`/add-pet`)} >Add Pets</button>
+                        <button onClick = {() => history.push(`/add-pet/${profileId}`)} >Add Pets</button>
                     </div>
                     <div className = "mypets-card">
-                        {pets.map((pet) => <Card key = {pet._id} name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
+                        {pets.map((pet) => <Card key = {pet._id} pid = {pet.petid} petImage = {pet.petImage} name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
                     </div>
                 </div>
             </div>

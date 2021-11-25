@@ -29,16 +29,6 @@
   display: none;
 }
 
-.Header input
-{
-  width: 300px;
-  margin: 15px 25px;
-  padding-left: 2%;
-  border: solid blue 2px;
-}
-
-
-
 
 @media screen and (max-width: 768px) 
 {

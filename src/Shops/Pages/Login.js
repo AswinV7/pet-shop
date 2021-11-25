@@ -13,6 +13,7 @@ const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState(false);
 
     const LoginCall = (e) => {
         e.preventDefault()
@@ -23,8 +24,9 @@ const Login = () => {
         postData('/login', data)
         .then((result) =>{
             localStorage.setItem('token',result.token)
+            setError(result)
             if(result.status)
-            history.push('/profile');
+                history.push('/profile')
         })
     }
 
@@ -34,6 +36,7 @@ const Login = () => {
             { open && <ForgetPassword isClose = {setOpen} />}
             <div className = "login-page">
                 <h2>LOGIN</h2>
+                <div className = {!error ? 'error-t' : 'error'} >{error.data}</div>
                 <form className = "login-form" onSubmit = {LoginCall}>
                     <label htmlFor = "email" >
                         <img src = {Image} alt="" />

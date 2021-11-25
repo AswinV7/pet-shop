@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/Pet.css'
 import Button from '../../Shared/Components/Button'
 import Header from '../../Shared/Components/Header'
-import Image from '../../Images/puppy.png'
+import image1 from '../../Images/puppy.png'
 import API_url from '../../Services/API_url'
 import { useParams } from 'react-router'
 import SignIn from '../../Users/Pages/SignIn'
@@ -14,12 +14,17 @@ const Pet = () => {
     const [pet, setPet] = useState([])
     const [open, setOpen] = useState(false);
     const Sname = pet.shopOwner
+    let img = image1
+    let petImage = pet.petImage
+    let image = `http://localhost:5000/images/${petImage}`
+
 
     useEffect(() => {
         fetch(API_url + `/pet/${pid}`)
         .then(res => res.json())
         .then(result => setPet(result))
     },[])
+    
 
     return (
         <div className = "pets-details">
@@ -28,7 +33,7 @@ const Pet = () => {
             <div className="pet">
                 <div className = "pets-info">
                     <div className="p-image">
-                        <img src = {Image} alt = "" />
+                        <img src = {petImage ? image : img} alt = "" />
                     </div>
                     <div className="pet-header">
                         <h2>Name  : {pet.petName}  </h2>

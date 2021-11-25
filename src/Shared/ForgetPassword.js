@@ -7,6 +7,7 @@ const ForgetPassword = ({isClose, }) => {
 
     const [phone, setPhone] = useState("")
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState(false);
 
     const forgetCall = (e) => {
         e.preventDefault()
@@ -15,7 +16,7 @@ const ForgetPassword = ({isClose, }) => {
         }
         postData('/forgotpassword', data)
         .then((result) =>{
-            console.log(result);
+            setError(result)
         if(result.status)
             setOpen(true)
         })
@@ -30,6 +31,7 @@ const ForgetPassword = ({isClose, }) => {
                 </div>
                 <div className = "details-a">
                     <h1>Forget Password</h1>
+                    <div className = {!error ? 'error-t' : 'error'} >{error.data}</div>
                     <h3>Enter your phone number</h3> 
                     <input type="text" name = "phone" value = {phone} placeholder = "Phone Number" onChange = {(e) => {setPhone(e.target.value)}} />
                     <button onClick = {forgetCall}  >Continue</button>

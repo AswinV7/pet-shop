@@ -1,8 +1,3 @@
-.Header input
-{
-  display: none;
-}
-
 .signup-page
 {
   font-family: Ramaraja;
@@ -52,6 +47,21 @@
   cursor: pointer;
   font-weight: bold;
   padding: 10px 35px;
+}
+
+.usr-img
+{
+  padding: 5px;
+}
+
+.usr-img button
+{
+  color: white;
+  font-weight: bold;
+  padding: 5px 0;
+  border: none;
+  cursor: pointer;
+  background: #7B61FF;
 }
 
 .al

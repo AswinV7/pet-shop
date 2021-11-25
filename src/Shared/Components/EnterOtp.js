@@ -7,6 +7,7 @@ const EnterOtp = ({Close , phone}) => {
 
     const [otp, setOtp] = useState("")
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState(false);
 
     const otpCall = (e) => {
         e.preventDefault()
@@ -18,9 +19,9 @@ const EnterOtp = ({Close , phone}) => {
         postData('/forgotpassword/otp-verification', data)
         .then((result) =>{
             localStorage.setItem('token',result.token)
-            console.log(result);
+            setError(result)
             if(result.status)
-            setOpen(true)
+                setOpen(true)
 
         })
     }
@@ -33,6 +34,7 @@ const EnterOtp = ({Close , phone}) => {
             </div>
             <div className = "details-a">
                 <h1>Enter OTP</h1>
+                <div className = {!error ? 'error-t' : 'error'} >{error.data}</div>
                 <h3>Check your phone for OTP</h3>
                 <input type="text" name = "otp" value = {otp} placeholder = "OTP" onChange = {(e) => {setOtp(e.target.value)}} />
                 <button onClick = {otpCall} >Verify</button>

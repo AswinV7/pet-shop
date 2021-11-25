@@ -8,6 +8,7 @@ const ResetPassword = ({isClose, phone}) => {
     const [password, setPassword] = useState("")
     const [conformPassword, setConformPassword] = useState("")
     const history = useHistory()
+    const [error, setError] = useState(false);
 
     const resetCall = (e) => {
         const data = {
@@ -15,10 +16,13 @@ const ResetPassword = ({isClose, phone}) => {
             conformPassword: conformPassword,
             phone
         }
-        postData('/forgotpassword/password-reset', data)
-        .then((result) =>{
-            console.log(result);
-        if(result.status)
+        if(password !== conformPassword)
+            setError(!error)
+        else
+            postData('/forgotpassword/password-reset', data)
+            .then((result) =>{
+                console.log(result);
+            if(result.status)
         history.push('/shops')
         })
     }
@@ -30,6 +34,7 @@ const ResetPassword = ({isClose, phone}) => {
             </div>
             <div className = "details-a">
                 <h1>New Password</h1>
+                <div className = {!error ? 'error-t' : 'error'} >Password not match</div>
                 <p>Please enter new password which is not used else where</p>
                 <input type="password" name = "password" value = {password} placeholder = "New Password" onChange = {(e) => {setPassword(e.target.value)}} />
                 <input type="password" name = "conform-password" value = {conformPassword} placeholder = "Conform New Password" onChange = {(e) => {setConformPassword(e.target.value)}} />

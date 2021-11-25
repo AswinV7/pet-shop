@@ -6,6 +6,8 @@ import { useHistory } from 'react-router'
 const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => {
 
     const history = useHistory();
+    const today = new Date()
+    let date =today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
     const conformOrder = () => {
         const data = {
@@ -14,7 +16,8 @@ const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => 
             Pbreed,
             Pprice,
             userName,
-            phone
+            phone,
+            date
         }
         postData('/orders', data)
         .then((result) =>{
@@ -33,7 +36,10 @@ const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => 
                 </div>
                 </div>
             <div className = "order-dtls">
-                    <h3>Shop Name : {Sname}</h3>
+                    <div>
+                        <h3>Shop Name : {Sname}</h3>
+                    </div>
+                    
                     <h3>Pet Name : {Pname}</h3>
                     <h3>Pet Breed : {Pbreed}</h3>
                     <h3>Pet Price : {Pprice}</h3>

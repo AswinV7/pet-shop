@@ -4,6 +4,9 @@ import { useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import API_url from '../../Services/API_url'
 import PopUp from '../../Shared/PopUp'
+import image1 from '../../Images/Home1.png'
+import FileUpload from '../../Services/FileUplod'
+import postData from '../../Services/postData'
 
 const Profile = () => {
 
@@ -11,15 +14,33 @@ const Profile = () => {
     const [profile, setProfile] = useState([])
     const [open, setOpen] = useState(false);
     const token = localStorage.getItem('token')
+    const [imageUrl, setImageUrl] = useState("")
+    const [selectedImage, setSelectedImage] = useState("")
+
+    const url = imageUrl.url
+    let img = image1
+    let shopImage = profile.shopImage
+    let image = `http://localhost:5000/images/${shopImage}`
+
 
     useEffect(() => {
-        fetch(API_url + `/profile`,{headers: {'authorization': `Bearer ${token.split(' ')[1]}`}})
+        fetch(API_url + `/profile`,{headers: {'authorization': token}})
         .then(res => res.json())
         .then(result => setProfile(result))
     },[])
 
-    const oncall = () => {
-        setOpen(!open)
+    const upload = () => {
+        const formData = new FormData()
+            formData.append('files', selectedImage)
+        FileUpload('/imageupload', formData)
+        .then(result => setImageUrl(result))
+    }
+
+    const changePic = () => {
+        const data = {
+            url
+        }
+        postData('/imageupdate', data)
     }
 
     const logOut = () =>{
@@ -29,12 +50,12 @@ const Profile = () => {
 
     return (
         <div className = {"Profile"}>
-            <Header  />
+            <Header shopName = {profile.shopName} shopImage = {profile.shopImage} />
             { open && <PopUp Close = {setOpen} />}
             <div className =  "profile">
                 <div className = "profile-button">
                     <div className = "shop-details">
-                        <div className = "shop-pic"></div>
+                        <img className = "shop-pic" src = {shopImage ? image : img} alt = "" /> 
                         <h3>{profile.shopName}</h3>
                     </div>
                     <div className = "options">
@@ -55,12 +76,13 @@ const Profile = () => {
                             <h2>EMAIL : {profile.email} </h2>
                             <h2>PIN : {profile.pin} </h2>
                            </div>
-                           <button onClick = {oncall} className = "edit-btopen"  >EDIT</button>
+                           <button onClick = {() => setOpen(!open)} className = "edit-btopen"  >EDIT</button>
                         </div>
                     </div>
                     <div className = "profile-image">
-                        <div className = "image"></div>
-                        <button>Change photo</button>
+                        <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
+                        <button onClick = {upload} className = "upload-btn" >Upload</button>
+                        <button onClick = {changePic} >Change Image</button>  
                     </div>
                 </div>
             </div>

@@ -3,6 +3,16 @@
   font-family: Ramaraja;
 }
 
+.search-pin
+{
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  padding: 5px;
+  width: 18rem;
+  border: solid blue 2px;
+}
+
 .featured-title
 {
   text-align : center;
@@ -15,6 +25,51 @@
   margin-left : 10%;
   color: #231248;
   font-size: 2.5rem;
+}
+
+.User .edt-btn
+{
+  display: none;
+}
+
+.btns
+{
+  display: flex;
+  gap: 5px;
+}
+
+.User .dlt-btn
+{
+  display: none;
+}
+
+.edt-btn
+{
+  background-color: white;
+  font-weight: bold;
+  border: solid blueviolet;
+  cursor: pointer;
+}
+
+.edt-btn:hover
+{
+  background-color: blueviolet;
+  color: white;
+}
+
+.dlt-btn
+{
+  background-color: white;
+  font-weight: bold;
+  border: solid red;
+  cursor: pointer;
+}
+
+.dlt-btn:hover
+{
+  background-color: red;
+  color: white;
+  border: solid red;
 }
 
 .cards-pets
@@ -139,6 +194,11 @@
     width: 50%;
   }
 
+  .cards-shops
+  {
+    gap: 0 10px;
+  }
+
 }
 
 @media screen and (max-width: 768px) 
@@ -150,9 +210,21 @@
     padding: 10px;
   }
 
+  .search-pin
+  {
+    top: .6rem;
+    width: 12rem;
+  }
+  
   .pet-info
   {
     font-size: .8rem;
+  }
+
+  .cards-shops
+  {
+    gap: 0 ;
+    margin: 0;
   }
 
   .pet-image
@@ -190,6 +262,15 @@
     align-items: center;
   }
 
+  .search-pin
+  {
+    font-size: 10px;
+    width: 8rem;
+    padding: 1px;
+    top: .4rem;
+    right: .8rem;
+  }
+
   .pet-image
   {
     width: 65%;
@@ -201,7 +282,15 @@
   }
 }
 
-@media screen and (max-width: 360px) 
+@media screen and (max-width: 280px) 
 {
-  
+  .btns
+  {
+    flex-direction: column;
+  }
+
+  .search-pin
+  {
+    width: 5rem;
+  }
 }

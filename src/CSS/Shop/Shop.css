@@ -4,6 +4,16 @@
     background-image: linear-gradient(white 20% , lightblue );
 }
 
+.Shop .edt-btn
+{
+  display: none;
+}
+
+.Shop .dlt-btn
+{
+  display: none;
+}
+
 .heading
 {
     font-size: 3rem;
@@ -17,11 +27,22 @@
     padding: 1rem;
 }
 
+.shop-dtls img
+{
+    width: 180px;
+}
+
 .contact-details
 {
     margin: 2rem 6rem;
 }
 
+.search-pet
+{
+    border: solid blue 2px;
+    width: 25rem;
+    padding: 10px;
+}
 
 .contact-details h3
 {

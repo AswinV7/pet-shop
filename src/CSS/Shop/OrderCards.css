@@ -106,23 +106,30 @@
 
 @media screen and (max-width: 480px)
 {
-    .order-details
+
+    .Order-card
+    {
+      width: 280px;
+      height: 150px;
+    }
+
+    .order-details h2
+    {
+        font-size: .7rem;
+    }
+
+    .order-status h1
     {
         font-size: .5rem;
     }
 
-    .order-status
+    .custm-details h1
     {
-        font-size: .3rem;
+        font-size: .8rem;
     }
-
-    .custm-details 
+    .order-chat h2
     {
-        font-size: .4rem;
-    }
-    .order-chat
-    {
-        font-size: .5rem;
+        font-size: .7rem;
     }
 
     .order-chat button
@@ -131,3 +138,60 @@
         margin: 20px 0;
     }
 }
+
+@media screen and (max-width: 360px)
+{
+  .Order-card
+  {
+    width: 230px;
+  }
+
+  .order-details h2
+    {
+        font-size: .6rem;
+    }
+
+    .order-status h1
+    {
+        font-size: .4rem;
+    }
+
+    .custm-details h1
+    {
+        font-size: .7rem;
+    }
+    .order-chat h2
+    {
+        font-size: .6rem;
+    }
+
+  .order-chat button
+  {
+    font-size: .5rem;
+    padding: 3px 10px;
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 280px)
+{
+  .Order-card
+  {
+    width: 180px;
+  }
+
+  .order-chat button
+  {
+    font-size: .5rem;
+    margin: 20px 0;
+    padding: 5px 10px;
+  }
+
+  .order-chat h2
+  {
+    font-size: .6rem;
+  }
+
+
+}
+

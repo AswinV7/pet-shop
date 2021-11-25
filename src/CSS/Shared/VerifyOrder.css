@@ -77,3 +77,18 @@
         font-size: 20px;
     }
 }
+
+@media screen and (max-width: 280px)
+{
+    .verify-order
+    {
+        width: 210px;
+        left: -2%;
+        top: -13%;
+    }
+
+    .order-container h1
+    {
+        margin-left: 1rem;
+    }
+}

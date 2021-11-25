@@ -11,6 +11,11 @@ const Shop = () => {
     const sid = params.shopid
     const [shop, setShop] = useState([])
     const [pets, setPets] = useState([])
+    const [breed, setBreed] = useState("")
+
+    let img = image1
+    let shopImage = shop.shopImage
+    let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
         fetch(API_url + `/shop/${sid}`)
@@ -27,7 +32,6 @@ const Shop = () => {
     return (
         <div className = "Shop">
             <Header />
-            {console.log(pets)}
             <h1 className = "heading">{shop.shopName}</h1>
             <div className = "shop-dtls">
                 <div className="contact-details">
@@ -35,17 +39,11 @@ const Shop = () => {
                     <h3>Email : {shop.email}</h3>
                     <h3>Phone No :{shop.phone}</h3>
                 </div>
-                <img src = {image1} alt = "" />
+                <img src = {shopImage ? image : img} alt = "" />
             </div>
-            <div className="catagories-animals">
-                <ul>
-                    <li>dogs</li>
-                    <li>cats</li>
-                    <li>birds</li>
-                </ul>
-            </div>
+            <input className = "search-pet" type="text" placeholder = "Search by pet breed" value = {breed} onChange = {(e) => {setBreed(e.target.value)}}/>
             <div className = "shop-pets">
-                {pets.map((pet) => <Card key = {pet._id}  name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
+                {pets.filter((pet) => {if(breed === ""){return pet} else if(pet.petBreed.toLowerCase().includes(breed.toLocaleLowerCase())){return pet}}).map((pet) => <Card key = {pet._id}  name = {pet.petName} petImage = {pet.petImage} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
             </div>
         </div>
     )

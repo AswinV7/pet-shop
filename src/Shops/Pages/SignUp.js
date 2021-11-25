@@ -7,6 +7,7 @@ import Image2 from '../../Images/location1.png'
 import Image3 from '../../Images/phone.png'
 import Image4 from '../../Images/lock.png'
 import postData from '../../Services/postData'
+import FileUpload from '../../Services/FileUplod'
 
 const SignUp = () => {
 
@@ -19,6 +20,10 @@ const SignUp = () => {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
     const [conformPassword, setConformPassword] = useState("")
+    const [selectedImage, setSelectedImage] = useState("")
+    const [imageUrl, setImageUrl] = useState("")
+
+    const url = imageUrl.url
 
     const signUpCall = (e) => 
     {
@@ -30,9 +35,9 @@ const SignUp = () => {
             email: email,
             phone: phone,
             password: password,
-            conformPassword: conformPassword
+            conformPassword: conformPassword,
+            url
         }
-        console.log(data);
         postData('/signup', data)
         .then((result) =>{
             console.log(result);
@@ -41,17 +46,28 @@ const SignUp = () => {
         })
     }
 
+    const upload = () => {
+        const formData = new FormData()
+            formData.append('files', selectedImage)
+        FileUpload('/imageupload', formData)
+        .then(result => setImageUrl(result))
+    }
+
     return (
         <div className = "SignUp">
             <Header />
             <div className = "signup-page">
                 <h2>SIGN UP</h2>
+                <div className = "usr-img">
+                        <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
+                        <button onClick = {upload} >UPLOAD IMAGE</button>
+                </div>
                 <form className="signup-form" onSubmit = {signUpCall}>
                     <label htmlFor = "shop-name" >
                         <img src = {Image1} alt="" />
                         <input type="text" name = "shop-name" value = {shopName} placeholder = "Shop Name" onChange = {(e) => {setShopName(e.target.value)}} />
                     </label>
-                
+
                     <label htmlFor = "shop-location" >
                         <img src = {Image2} alt="" />
                         <input type="text" name = "shop-location" value = {shopLocation} placeholder = "Shop Location" onChange = {(e) => {setShopLocation(e.target.value)}} />

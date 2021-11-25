@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../CSS/Shop/AddPets.css'
 import { useState } from 'react'
+import { useParams } from 'react-router'
+import { useHistory } from 'react-router'
 import postData from '../../Services/postData'
 import Header from '../../Shared/Components/Header'
 import FileUpload from '../../Services/FileUplod'
@@ -14,6 +16,12 @@ const AddPets = () => {
     const [petPrice, setpetPrice] = useState("")
     const [shopOwner, setshopOwner] = useState("")
     const [selectedImage, setSelectedImage] = useState("")
+    const [imageUrl, setImageUrl] = useState("")
+
+    const url = imageUrl.url
+    const id = useParams()
+    const profileId = id.shopid
+    const history = useHistory()
 
     const petAddCall = (e) => 
     {
@@ -24,12 +32,15 @@ const AddPets = () => {
             petAge: petAge,
             petDescription: petDescription,
             petPrice: petPrice,
-            shopOwner: shopOwner
+            shopOwner: shopOwner,
+            petImage: url,
+            profileId
         }
         console.log(data);
         postData('/shop/pets', data)
         .then((result) =>{
-            console.log(result);
+        if(result.status)
+            history.push('/mypets');
         })
     }
 
@@ -37,6 +48,7 @@ const AddPets = () => {
         const formData = new FormData()
             formData.append('files', selectedImage)
         FileUpload('/imageupload', formData)
+        .then(result => setImageUrl(result))
     }
     
     return (

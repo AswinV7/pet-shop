@@ -8,6 +8,8 @@ const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) =
 
     const [otp, setOtp] = useState("")
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState(false);
+
 
     const otpCall = (e) => {
         e.preventDefault()
@@ -18,7 +20,7 @@ const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) =
         postData('/placeorder/otp-verification', data)
         .then((result) =>{
             localStorage.setItem('token',result.token)
-            console.log(result);
+            setError(result)
             if(result.status)
             setOpen(true)
         })
@@ -32,6 +34,7 @@ const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) =
             </div>
             <div className = "details-a">
                 <h1>Enter OTP</h1>
+                <div className = {!error ? 'error-t' : 'error'} >{error.data}</div>
                 <h3>Check your phone for OTP</h3>
                 <form className = "OTP-form">
                     <label htmlFor = "otp" >

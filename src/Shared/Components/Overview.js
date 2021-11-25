@@ -6,10 +6,9 @@ import vector2 from '../../Images/Vector.png'
 import { useHistory } from 'react-router'
 
 const Overview = () => {
-    const history = useHistory()
+    const history = useHistory()   
     return (
-        
-        <div className = "Overview">
+         <div className = "Overview">
             <div className = "Overview-b">
                 <h1 className = "logo">Companion</h1>
                 <h2>The most trusted online pet adoption site </h2>

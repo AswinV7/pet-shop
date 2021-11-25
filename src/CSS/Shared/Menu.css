@@ -1,6 +1,7 @@
 .MenuOpen
 {
     position: absolute;
+    z-index: 1;
     transition: transform 0.2s ease-in-out;
     transform: translate(-100%);
     background-color: #231248;
@@ -26,14 +27,20 @@
   text-align: center;
 }
 
+.menu-details img
+{
+    display: block;
+}
+
 .menu-pic
 {
-    height: 20px;
-    background-color: white;
+    padding: 10px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin: 10px 40px;
-    padding: 50px 0;
 }
+
+
 
 .menu-options
 {
@@ -72,7 +79,8 @@
 
     .menu-pic
     {
-        padding: 25px;
+        width: 130px;
+        height: 130px;
     }
 
     .menu-details
@@ -85,4 +93,6 @@
         font-size: .6rem;
     }
 }
+
+
 
