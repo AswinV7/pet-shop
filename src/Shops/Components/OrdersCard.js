@@ -1,7 +1,16 @@
 import React from 'react'
 import '../../CSS/Shop/OrderCards.css'
+import API_url from '../../Services/API_url'
 
-const OrdersCard = ({petName, petBreed, petPrice, date, userName, phone}) => {
+const OrdersCard = ({petName, petBreed, petPrice, orderId, date, userName, phone}) => {
+
+    const deleteOrder = () => {
+        
+        fetch(API_url + `/order-delete/${orderId}`)
+        .then(res => res.json())
+        .then(result => console.log(result))
+    }
+
     return (
         <div className = "Order-card">
             <div className = "order-card">
@@ -28,7 +37,7 @@ const OrdersCard = ({petName, petBreed, petPrice, date, userName, phone}) => {
                     <h2>Name : {userName}</h2>
                     <h2>Phone No : {phone}</h2>
                 </div>
-                <button>Call</button>
+                <button onclick = {deleteOrder} >Done</button>
             </div>
         </div>
     )

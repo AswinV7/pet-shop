@@ -27,7 +27,7 @@ const Shop = () => {
         fetch(API_url + `/shops/pet/${sid}`)
         .then(res => res.json())
         .then(result => setPets(result))
-        
+
     },[])
     return (
         <div className = "Shop">

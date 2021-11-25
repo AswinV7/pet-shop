@@ -7,12 +7,14 @@ import PopUp from '../../Shared/PopUp'
 import image1 from '../../Images/Home1.png'
 import FileUpload from '../../Services/FileUplod'
 import postData from '../../Services/postData'
+import UpdateOwner from '../../Shared/Components/UpdateOwner'
 
 const Profile = () => {
 
     const history = useHistory()
     const [profile, setProfile] = useState([])
     const [open, setOpen] = useState(false);
+    const [update, setUpdate] = useState(false);
     const token = localStorage.getItem('token')
     const [imageUrl, setImageUrl] = useState("")
     const [selectedImage, setSelectedImage] = useState("")
@@ -52,6 +54,7 @@ const Profile = () => {
         <div className = {"Profile"}>
             <Header shopName = {profile.shopName} shopImage = {profile.shopImage} />
             { open && <PopUp Close = {setOpen} />}
+            { update && <UpdateOwner Close = {setUpdate} shopId = {profile._id} />}
             <div className =  "profile">
                 <div className = "profile-button">
                     <div className = "shop-details">
@@ -78,6 +81,11 @@ const Profile = () => {
                            </div>
                            <button onClick = {() => setOpen(!open)} className = "edit-btopen"  >EDIT</button>
                         </div>
+                        <div className = "update-cntr">
+                            <h4>Update Shop Owner</h4>
+                            <button className = "update-shp" onClick = {() => setUpdate(!update)}>Update</button>
+                        </div>
+                        
                     </div>
                     <div className = "profile-image">
                         <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />

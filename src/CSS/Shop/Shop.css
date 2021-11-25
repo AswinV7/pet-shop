@@ -115,6 +115,11 @@
         padding: 0;
     }
 
+    .search-pet
+    {
+        width: 15rem;
+    }
+
     .shop-dtls img
     {
         width: 100px;
@@ -152,6 +157,11 @@
     {
         margin: .3rem;
         font-size: .5rem;
+    }
+
+    .search-pet
+    {
+        width: 10rem;
     }
 
     .shop-dtls img
