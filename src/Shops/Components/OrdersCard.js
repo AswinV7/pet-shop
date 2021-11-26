@@ -37,7 +37,7 @@ const OrdersCard = ({petName, petBreed, petPrice, orderId, date, userName, phone
                     <h2>Name : {userName}</h2>
                     <h2>Phone No : {phone}</h2>
                 </div>
-                <button onclick = {deleteOrder} >Done</button>
+                <button onClick = {deleteOrder} >Done</button>
             </div>
         </div>
     )
