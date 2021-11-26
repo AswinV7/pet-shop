@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/Profile.css'
-import { useHistory } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import API_url from '../../Services/API_url'
 import PopUp from '../../Shared/PopUp'
@@ -23,7 +23,6 @@ const Profile = () => {
     let img = image1
     let shopImage = profile.shopImage
     let image = `http://localhost:5000/images/${shopImage}`
-
 
     useEffect(() => {
         fetch(API_url + `/profile`,{headers: {'authorization': token}})
@@ -49,6 +48,9 @@ const Profile = () => {
         localStorage.removeItem("token");
         history.push("/login");
     }
+
+    if(!token)
+        return <Redirect to = '/'/>
 
     return (
         <div className = {"Profile"}>
