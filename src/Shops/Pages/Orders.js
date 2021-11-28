@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/Order.css'
-import { useHistory } from 'react-router'
+import {  Redirect, useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import image1 from '../../Images/Home1.png'
 import OrdersCard from '../Components/OrdersCard'
@@ -17,18 +17,22 @@ const Orders = () => {
     let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
-        fetch(API_url + `/myorders`, {headers: {'authorization': token}})
-        .then(res => res.json())
-        .then(result => setOrders(result))
+        if(token)
+            return fetch(API_url + `/myorders`, {headers: {'authorization': token}})
+                    .then(res => res.json())
+                    .then(result => setOrders(result))
         
     },[])
 
     useEffect(() => {
-        fetch(API_url + `/profile`,{headers: {'authorization': token}})
-        .then(res => res.json())
-        .then(result => setProfile(result))
+        if(token)
+            return fetch(API_url + `/profile`,{headers: {'authorization': token}})
+                    .then(res => res.json())
+                    .then(result => setProfile(result))
     },[])
 
+    if(!token)
+        return <Redirect to = '/'/>
 
     const logOut = () =>{
         localStorage.removeItem("token");

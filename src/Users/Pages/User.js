@@ -29,11 +29,11 @@ const User = () => {
             <input className = "search-pin" type="text" placeholder = "Enter Pin" value = {location} onChange = {(e) => {setLocation(e.target.value)}}/>
             <h2 className = "featured-title" >Featured Pets</h2>
             <div className="cards-pets">
-                {pets.map((pet) => {if(pet.petPrice >= 25000) return  <Card key = {pet._id} name = {pet.petName} petImage = {pet.petImage} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} /> }) }
+                {pets.map((pet) => {if(pet.petPrice >= 25000) return  <Card key = {pet.petName} name = {pet.petName} petImage = {pet.petImage} breed = {pet.petBreed}  price = {pet.petPrice} age = {pet.petAge} /> }) }
             </div>
             <h2 className = "shop-title">Our Shops</h2>
             <div className="cards-shops">
-                {shops.filter((shop) => {if(location === ""){return shop} else if(location === shop.pin){return shop}}).map((shop) => <ShopCard key = {shop._id} name = {shop.shopName} shopImage = {shop.shopImage} info = {shop.phone} location = {shop.shopLocation} shopid = {shop._id}/>) }
+                {shops.filter((shop) => {if(location === ""){return shop} else if(location === shop.pin){return shop}}).map((shop) => <ShopCard key = {shop.shopName} name = {shop.shopName} shopImage = {shop.shopImage} info = {shop.phone} location = {shop.shopLocation} />) }
             </div>
             
         </div>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import '../../CSS/Shared/EnterOtp.css'
-import { useHistory } from 'react-router'
 import postData from '../../Services/postData'
 
 
 const UpdateVerify = ({Close ,email ,phone}) => {
 
-    const history = useHistory()
     const [otp, setOtp] = useState("")
-    const [open, setOpen] = useState(false);
     const [error, setError] = useState(false);
 
 

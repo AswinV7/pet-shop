@@ -1,8 +1,7 @@
 import React from 'react'
 import '../../CSS/Shop/AddPets.css'
 import { useState } from 'react'
-import { useParams } from 'react-router'
-import { useHistory } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
 import postData from '../../Services/postData'
 import Header from '../../Shared/Components/Header'
 import FileUpload from '../../Services/FileUplod'
@@ -19,8 +18,7 @@ const AddPets = () => {
     const [imageUrl, setImageUrl] = useState("")
 
     const url = imageUrl.url
-    const id = useParams()
-    const profileId = id.shopid
+    const token = localStorage.getItem('token')
     const history = useHistory()
 
     const petAddCall = (e) => 
@@ -33,8 +31,7 @@ const AddPets = () => {
             petDescription: petDescription,
             petPrice: petPrice,
             shopOwner: shopOwner,
-            petImage: url,
-            profileId
+            petImage: url
         }
         console.log(data);
         postData('/shop/pets', data)
@@ -43,6 +40,9 @@ const AddPets = () => {
             history.push('/mypets');
         })
     }
+
+    if(!token)
+        return <Redirect to = '/'/>
 
     const upload = () => {
         const formData = new FormData()

@@ -21,14 +21,16 @@ const Profile = () => {
 
     const url = imageUrl.url
     let img = image1
-    let shopImage = profile.shopImage
-    let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
-        fetch(API_url + `/profile`,{headers: {'authorization': token}})
-        .then(res => res.json())
-        .then(result => setProfile(result))
+        if(token)
+            return fetch(API_url + `/profile`,{headers: {'authorization': token}})
+                    .then(res => res.json())
+                    .then(result => setProfile(result))
     },[])
+
+    if(!token)
+        return <Redirect to = '/'/>
 
     const upload = () => {
         const formData = new FormData()
@@ -49,9 +51,6 @@ const Profile = () => {
         history.push("/login");
     }
 
-    if(!token)
-        return <Redirect to = '/'/>
-
     return (
         <div className = {"Profile"}>
             <Header shopName = {profile.shopName} shopImage = {profile.shopImage} />
@@ -60,7 +59,7 @@ const Profile = () => {
             <div className =  "profile">
                 <div className = "profile-button">
                     <div className = "shop-details">
-                        <img className = "shop-pic" src = {shopImage ? image : img} alt = "" /> 
+                        <img className = "shop-pic" src = { img} alt = "" /> 
                         <h3>{profile.shopName}</h3>
                     </div>
                     <div className = "options">

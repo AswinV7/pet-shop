@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../CSS/Shop/MyPets.css'
-import { useHistory } from 'react-router'
+import {  Redirect,useHistory } from 'react-router'
 import Header from '../../Shared/Components/Header'
 import image1 from '../../Images/Home1.png'
 import API_url from '../../Services/API_url'
@@ -12,24 +12,27 @@ const MyPets = () => {
     const token = localStorage.getItem('token')
     const [pets, setPets] = useState([])
     const [profile, setProfile] = useState([])
-    const profileId = profile._id 
     let img = image1
     let shopImage = profile.shopImage
     let image = `http://localhost:5000/images/${shopImage}`
 
     useEffect(() => {
-        fetch(API_url + `/mypets`, {headers: {'authorization': token}})
-        .then(res => res.json())
-        .then(result => setPets(result))
-        
+        if (token) 
+            return fetch(API_url + `/mypets`, {headers: {'authorization': token}})
+                    .then(res => res.json())
+                    .then(result => setPets(result))   
     },[])
 
     useEffect(() => {
-        fetch(API_url + `/profile`,{headers: {'authorization': token}})
-        .then(res => res.json())
-        .then(result => setProfile(result))
+        if (token)
+            return fetch(API_url + `/profile`,{headers: {'authorization': token}})
+                    .then(res => res.json())
+                    .then(result => setProfile(result))
     },[])
  
+    if(!token)
+        return <Redirect to = '/'/>
+
     const logOut = () =>{
         localStorage.removeItem("token");
         history.push("/login");
@@ -54,10 +57,10 @@ const MyPets = () => {
                 <div className = "mypets-details">
                     <div className = "mypets-h">
                         <h1>MY PETS</h1>
-                        <button onClick = {() => history.push(`/add-pet/${profileId}`)} >Add Pets</button>
+                        <button onClick = {() => history.push(`/add-pet`)} >Add Pets</button>
                     </div>
                     <div className = "mypets-card">
-                        {pets.map((pet) => <Card key = {pet._id} pid = {pet.petid} petImage = {pet.petImage} name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
+                        {pets.map((pet) => <Card key = {pet._id} pid = {pet.petid} token = {token} petImage = {pet.petImage} name = {pet.petName} breed = {pet.petBreed} petid = {pet._id} price = {pet.petPrice} age = {pet.petAge} />) }
                     </div>
                 </div>
             </div>

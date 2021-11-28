@@ -22,7 +22,9 @@ const SignUp = () => {
     const [conformPassword, setConformPassword] = useState("")
     const [selectedImage, setSelectedImage] = useState("")
     const [imageUrl, setImageUrl] = useState("")
-
+    const [error, setError] = useState(false);
+    const [errror, setErrror] = useState(false);
+    
     const url = imageUrl.url
 
     const signUpCall = (e) => 
@@ -38,12 +40,17 @@ const SignUp = () => {
             conformPassword: conformPassword,
             url
         }
-        postData('/signup', data)
-        .then((result) =>{
-            console.log(result);
+        if(password === conformPassword)
+            setErrror(false)
+        if(password !== conformPassword)
+            setErrror(true)
+        else
+            postData('/signup', data)
+            .then((result) =>{
+            setError(result)
             if(result.status)
             history.push('/login');
-        })
+    })
     }
 
     const upload = () => {
@@ -58,6 +65,8 @@ const SignUp = () => {
             <Header />
             <div className = "signup-page">
                 <h2>SIGN UP</h2>
+                <div className = {!error ? 'error-t' : 'error'} >{error.data}</div>
+                <div className = {!errror ? 'error-t' : 'error'} >Password not match</div>
                 <div className = "usr-img">
                         <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
                         <button onClick = {upload} >UPLOAD IMAGE</button>

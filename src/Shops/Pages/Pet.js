@@ -10,7 +10,7 @@ import SignIn from '../../Users/Pages/SignIn'
 const Pet = () => {
 
     const idd = useParams()
-    const pid = idd.petid
+    const pid = idd.name
     const [pet, setPet] = useState([])
     const [open, setOpen] = useState(false);
     const Sname = pet.shopOwner

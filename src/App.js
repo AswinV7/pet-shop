@@ -27,11 +27,11 @@ const App = () => {
             <Route path = "/" component = {Overview} exact />
             <Route path = "/shops" component = {Shops} exact />
             <Route path = "/user" component = {User} />
-            <Route path = "/shops/pets/:petid" component = {Pet} exact />
-            <Route path = "/shops/:shopid" component = {Shop} exact/>
+            <Route path = "/shops/pets/:name" component = {Pet} exact />
+            <Route path = "/shops/:name" component = {Shop} exact/>
             <Route path = "/signup" component = {SignUp} exact />
             <Route path = "/login" component = {Login} exact />
-            <Route path = "/add-pet/:shopid" component = {AddPets} exact />
+            <Route path = "/add-pet" component = {AddPets} exact />
             <Route path = "/profile" component = {Profile} exact />
             <Route path = "/signin" component = {SignIn} exact />
             <Route path = "/orders" component = {Orders} exact />
