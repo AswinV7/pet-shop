@@ -13,7 +13,6 @@ const AddPets = () => {
     const [petAge, setpetAge] = useState("")
     const [petDescription, setpetDescription] = useState("")
     const [petPrice, setpetPrice] = useState("")
-    const [shopOwner, setshopOwner] = useState("")
     const [selectedImage, setSelectedImage] = useState("")
     const [imageUrl, setImageUrl] = useState("")
 
@@ -30,7 +29,6 @@ const AddPets = () => {
             petAge: petAge,
             petDescription: petDescription,
             petPrice: petPrice,
-            shopOwner: shopOwner,
             petImage: url
         }
         console.log(data);
@@ -76,10 +74,6 @@ const AddPets = () => {
 
                         <label htmlFor="pet-price">
                             <input type="text" name = "pet-price" value = {petPrice} placeholder = "Pet Price" onChange = {(e) => {setpetPrice(e.target.value)}} />
-                        </label>
-
-                        <label htmlFor="shop-owner">
-                            <input type="text" name = "shop-owner" value = {shopOwner} placeholder = "Shop Owner" onChange = {(e) => {setshopOwner(e.target.value)}} />
                         </label>
 
                         <label htmlFor="pet-description">

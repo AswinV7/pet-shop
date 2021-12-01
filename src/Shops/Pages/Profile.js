@@ -21,6 +21,7 @@ const Profile = () => {
 
     const url = imageUrl.url
     let img = image1
+    let image = `http://localhost:5000/images/${profile.shopImage}`
 
     useEffect(() => {
         if(token)
@@ -59,7 +60,7 @@ const Profile = () => {
             <div className =  "profile">
                 <div className = "profile-button">
                     <div className = "shop-details">
-                        <img className = "shop-pic" src = { img} alt = "" /> 
+                        <img className = "shop-pic" src = { profile.shopImage? image : img} alt = "" /> 
                         <h3>{profile.shopName}</h3>
                     </div>
                     <div className = "options">

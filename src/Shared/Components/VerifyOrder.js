@@ -22,8 +22,10 @@ const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => 
         postData('/orders', data)
         .then((result) =>{
             console.log(result);
-        if(result.status)
-        history.push('/user')
+        if(result.status){
+            localStorage.removeItem("token");
+            history.push('/user')
+        }
         })
     }
 
