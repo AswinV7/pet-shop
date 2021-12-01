@@ -22,8 +22,11 @@ const ResetPassword = ({isClose, phone}) => {
             postData('/forgotpassword/password-reset', data)
             .then((result) =>{
                 console.log(result);
-            if(result.status)
-        history.push('/shops')
+            if(result.status){
+                localStorage.removeItem("token");
+                history.push('/shops')
+            }
+            
         })
     }
 

@@ -36,17 +36,9 @@ const Profile = () => {
     const upload = () => {
         const formData = new FormData()
             formData.append('files', selectedImage)
-        FileUpload('/imageupload', formData)
-        .then(result => setImageUrl(result))
+        FileUpload('/imageupdate', formData)
     }
-
-    const changePic = () => {
-        const data = {
-            url
-        }
-        postData('/imageupdate', data)
-    }
-
+    
     const logOut = () =>{
         localStorage.removeItem("token");
         history.push("/login");
@@ -91,8 +83,7 @@ const Profile = () => {
                     </div>
                     <div className = "profile-image">
                         <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
-                        <button onClick = {upload} className = "upload-btn" >Upload</button>
-                        <button onClick = {changePic} >Change Image</button>  
+                        <button onClick = {upload} className = "upload-btn" >Change Image</button>
                     </div>
                 </div>
             </div>

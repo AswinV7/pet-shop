@@ -18,7 +18,6 @@ const UpdateOwner = ({Close ,shopId }) => {
         }
         postData('/shop/user-update', data)
         .then((result) =>{
-            localStorage.setItem('token',result.token)
         if(result.status)
             setOpen(true)
         })

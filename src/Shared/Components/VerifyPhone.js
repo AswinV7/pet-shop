@@ -22,7 +22,7 @@ const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) =
             localStorage.setItem('token',result.token)
             setError(result)
             if(result.status)
-            setOpen(true)
+            setOpen(!open)
         })
     }
 

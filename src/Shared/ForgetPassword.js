@@ -18,7 +18,7 @@ const ForgetPassword = ({isClose, }) => {
         .then((result) =>{
             setError(result)
         if(result.status)
-            setOpen(true)
+            setOpen(!open)
         })
     }
 
