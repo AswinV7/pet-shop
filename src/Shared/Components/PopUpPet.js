@@ -67,27 +67,27 @@ const PopUpPet = ({Close, pid}) => {
                 </div>
                 <form className="edit-form"  onSubmit = {petUpdateCall} >
                     <label htmlFor = "pet-name" >
-                        <input type="text" name = "petname" value = {values.petName}  placeholder = "Pet Name" onChange = {handleChange} />
+                        <input type="text" name = "petName" value = {values.petName}  placeholder = "Pet Name" onChange = {handleChange} />
                         {errors.petName && <p className = "errort">{errors.petName}</p>}
                     </label>
                 
                     <label htmlFor = "pet-age" >
-                        <input type="text" name = "petage" value = {values.petAge} placeholder = "Pet Age" onChange = {handleChange} />
+                        <input type="text" name = "petAge" value = {values.petAge} placeholder = "Pet Age" onChange = {handleChange} />
                         {errors.petAge && <p className = "errort">{errors.petAge}</p>}
                     </label>
                 
                     <label htmlFor = "pet-breed" >
-                        <input type="text" name = "petbreed" value = {values.petBreed} placeholder = "Pet Breed" onChange = {handleChange} />
+                        <input type="text" name = "petBreed" value = {values.petBreed} placeholder = "Pet Breed" onChange = {handleChange} />
                         {errors.petBreed && <p className = "errort">{errors.petBreed}</p>}
                     </label>
 
                     <label htmlFor = "pet-description" >
-                        <input type="text" name = "petdescription" value = {values.petDescription} placeholder = "Description" onChange = {handleChange} />
+                        <input type="text" name = "petDescription" value = {values.petDescription} placeholder = "Description" onChange = {handleChange} />
                         {errors.petDescription && <p className = "errort">{errors.petDescription}</p>}
                     </label>
                 
                     <label htmlFor = "pet-price" >
-                        <input type="text" name = "petprice" value = {values.petPrice} placeholder = "Price" onChange = {handleChange} />
+                        <input type="text" name = "petPrice" value = {values.petPrice} placeholder = "Price" onChange = {handleChange} />
                         {errors.petPrice && <p className = "errort">{errors.petPrice}</p>}
                     </label>
                 
