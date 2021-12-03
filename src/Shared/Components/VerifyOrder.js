@@ -3,7 +3,7 @@ import '../../CSS/Shared/VerifyOrder.css'
 import postData from '../../Services/postData'
 import { useHistory } from 'react-router'
 
-const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => {
+const VerifyOrder = ({Close, Sname, pid, Pname, Pbreed, Pprice, userName, phone}) => {
 
     const history = useHistory();
     const today = new Date()
@@ -17,7 +17,8 @@ const VerifyOrder = ({Close, Sname, Pname, Pbreed, Pprice, userName, phone}) => 
             Pprice,
             userName,
             phone,
-            date
+            date,
+            pid
         }
         postData('/orders', data)
         .then((result) =>{

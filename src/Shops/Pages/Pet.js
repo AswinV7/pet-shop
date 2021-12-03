@@ -29,7 +29,8 @@ const Pet = () => {
     return (
         <div className = "pets-details">
             <Header />
-            { open && <SignIn Close = {setOpen} Sname = {Sname} Pname = {pet.petName} Pbreed = {pet.petBreed} Pprice = {pet.petPrice} />}
+            {console.log(pet)}
+            { open && <SignIn Close = {setOpen} Sname = {Sname} Pname = {pet.petName} Pbreed = {pet.petBreed} pid = {pet.petid} Pprice = {pet.petPrice} />}
             <div className="pet">
                 <div className = "pets-info">
                     <div className="p-image">

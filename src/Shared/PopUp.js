@@ -2,31 +2,40 @@ import React, { useState } from 'react'
 import '../CSS/Shared/PopUp.css'
 import { useHistory } from 'react-router'
 import postData from '../Services/postData'
+import Validation from './Components/Validation'
 
 const PopUp = ({Close}) => {
 
     const history = useHistory()
-    const [shopName, setShopName] = useState("")
-    const [shopLocation, setShopLocation] = useState("")
-    const [pin, setPin] = useState("")
+    const [errors, setErrors] = useState({});
+    let isValid = true
+    const [values, setValues] = useState({
+        shopName: "", 
+        shopLocation: "", 
+        pin: ""
+    })
+
+    if((values.shopName || values.shopLocation || values.pin) == ""){
+        isValid = false
+    }
 
     const submitCall = (e) => {
         e.preventDefault()
+        setErrors(Validation(values))
         const data = {
-            shopName: shopName,
-            shopLocation: shopLocation,
-            pin: pin
+            shopName: values.shopName,
+            shopLocation: values.shopLocation,
+            pin: values.pin
         }
-        if(data == null)
-            console.log("err");
-        else
-            postData('/shop/update', data)
-            .then((result) =>{
-                console.log(result);
-                if(result.status)
-                    history.push(`/mypets`)
 
-        })
+        if(isValid === true)
+            postData('/shop/update', data)
+    }
+
+    const handleChange = (e) =>{
+        setValues({
+            ...values,[e.target.name]: e.target.value,
+        });
     }
 
     return (
@@ -36,16 +45,19 @@ const PopUp = ({Close}) => {
                     <button  onClick = {() => Close(false)} >X</button>
                 </div>
                 <form className="edit-form" onSubmit = {submitCall} >
-                    <label htmlFor = "shop-name" >
-                        <input type="text" name = "shop-name" value = {shopName}  placeholder = "Shop Name" onChange = {(e) => {setShopName(e.target.value)}} />
+                    <label htmlFor = "shopname" >
+                        <input type="text" name = "shopName" value = {values.shopName}  placeholder = "Shop Name" onChange = {handleChange}  />
+                        {errors.shopName && <p className = "errort">{errors.shopName}</p>}
                     </label>
                 
-                    <label htmlFor = "shop-location" >
-                        <input type="text" name = "shop-location" value = {shopLocation} placeholder = "Shop Location" onChange = {(e) => {setShopLocation(e.target.value)}} />
+                    <label htmlFor = "shoplocation" >
+                        <input type="text" name = "shopLocation" value = {values.shopLocation} placeholder = "Shop Location" onChange = {handleChange}  />
+                        {errors.shopLocation && <p className = "errort">{errors.shopLocation}</p>}
                     </label>
                 
                     <label htmlFor = "pin" >
-                        <input type="text" name = "pin" value = {pin} placeholder = "Pin" onChange = {(e) => {setPin(e.target.value)}} />
+                        <input type="text" name = "pin" value = {values.pin} placeholder = "Pin" onChange = {handleChange}  />
+                        {errors.pin && <p className = "errort">{errors.pin}</p>}
                     </label>
                 
                     <button type = "submit"  > SUBMIT</button>

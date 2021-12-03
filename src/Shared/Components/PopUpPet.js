@@ -1,29 +1,57 @@
 import React, { useState } from 'react'
 import '../../CSS/Shared/PopUpPet.css'
+import FileUpload from '../../Services/FileUplod'
 import postData from '../../Services/postData'
+import Validation from './Validation'
 
 const PopUpPet = ({Close, pid}) => {
 
-    const [petName, setPetName] = useState("")
-    const [petAge, setPetAge] = useState("")
-    const [petBreed, setPetBreed] = useState("")
-    const [petDescription, setPetDescription] = useState("")
-    const [petPrice, setPetPrice] = useState("")
+    const [values, setValues] = useState({
+        petName: "", 
+        petBreed: "", 
+        petAge: "", 
+        petDescription: "", 
+        petPrice: ""
+    })
+    const [selectedImage, setSelectedImage] = useState("")
+    const [imageUrl, setImageUrl] = useState("")
+    const [errors, setErrors] = useState({});
 
-    const petUpdateCall = () => 
+    const url = imageUrl.url
+    let isValid = true
+
+    if((values.petName || values.petBreed || values.petAge || values.petDescription || values.petPrice) == ""){
+        isValid = false
+    }
+
+    const petUpdateCall = (e) => 
     {
+        e.preventDefault()
+        setErrors(Validation(values))
         const data = {
-            petName: petName,
-            petBreed: petBreed,
-            petAge: petAge,
-            petDescription: petDescription,
-            petPrice: petPrice,
+            petName: values.petName,
+            petBreed: values.petBreed,
+            petAge: values.petAge,
+            petDescription: values.petDescription,
+            petPrice: values.petPrice,
+            petImage: url,
             pid
         }
-        postData('/pet/update', data)
-        .then((result) =>{
-            console.log(result);
-        })
+        if(isValid === true)
+            postData('/pet/update', data)
+    }
+
+    const handleChange = (e) =>{
+        setValues({
+            ...values,[e.target.name]: e.target.value,
+        });
+    }
+
+    const upload = () => {
+        const formData = new FormData()
+            formData.append('files', selectedImage)
+        FileUpload('/imageupload', formData)
+        .then(result => setImageUrl(result))
     }
 
 
@@ -33,25 +61,34 @@ const PopUpPet = ({Close, pid}) => {
                 <div className = "close-bt">
                     <button  onClick = {() => Close(false)} >X</button>
                 </div>
+                <div className = "petimg">
+                        <input type = "file" files = {selectedImage} onChange = {(e) => setSelectedImage(e.target.files[0]) } />
+                        <button onClick = {upload} >UPLOAD IMAGE</button>
+                </div>
                 <form className="edit-form"  onSubmit = {petUpdateCall} >
                     <label htmlFor = "pet-name" >
-                        <input type="text" name = "shop-name" value = {petName}  placeholder = "Pet Name" onChange = {(e) => {setPetName(e.target.value)}} />
+                        <input type="text" name = "petname" value = {values.petName}  placeholder = "Pet Name" onChange = {handleChange} />
+                        {errors.petName && <p className = "errort">{errors.petName}</p>}
                     </label>
                 
                     <label htmlFor = "pet-age" >
-                        <input type="text" name = "shop-location" value = {petAge} placeholder = "Pet Age" onChange = {(e) => {setPetAge(e.target.value)}} />
+                        <input type="text" name = "petage" value = {values.petAge} placeholder = "Pet Age" onChange = {handleChange} />
+                        {errors.petAge && <p className = "errort">{errors.petAge}</p>}
                     </label>
                 
                     <label htmlFor = "pet-breed" >
-                        <input type="text" name = "pin" value = {petBreed} placeholder = "Pet Breed" onChange = {(e) => {setPetBreed(e.target.value)}} />
+                        <input type="text" name = "petbreed" value = {values.petBreed} placeholder = "Pet Breed" onChange = {handleChange} />
+                        {errors.petBreed && <p className = "errort">{errors.petBreed}</p>}
                     </label>
 
                     <label htmlFor = "pet-description" >
-                        <input type="text" name = "pet-description" value = {petDescription} placeholder = "Description" onChange = {(e) => {setPetDescription(e.target.value)}} />
+                        <input type="text" name = "petdescription" value = {values.petDescription} placeholder = "Description" onChange = {handleChange} />
+                        {errors.petDescription && <p className = "errort">{errors.petDescription}</p>}
                     </label>
                 
                     <label htmlFor = "pet-price" >
-                        <input type="text" name = "pet-price" value = {petPrice} placeholder = "Price" onChange = {(e) => {setPetPrice(e.target.value)}} />
+                        <input type="text" name = "petprice" value = {values.petPrice} placeholder = "Price" onChange = {handleChange} />
+                        {errors.petPrice && <p className = "errort">{errors.petPrice}</p>}
                     </label>
                 
                     <button type = "submit"  > SUBMIT</button>

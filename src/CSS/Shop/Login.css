@@ -16,6 +16,15 @@
   display: none;
 }
 
+.errort
+{
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
 .error
 {
   color: red;

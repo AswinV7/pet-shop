@@ -31,6 +31,7 @@ const Orders = () => {
                     .then(result => setProfile(result))
     },[])
 
+    console.log(orders);
     if(!token)
         return <Redirect to = '/'/>
 
@@ -58,7 +59,7 @@ const Orders = () => {
                 <div className = "orders-details">
                     <h1 className ="order-h">ORDERS</h1>
                     <div className = "orders-card">
-                        {orders.map((order) => <OrdersCard key = {order._id} orderId = {order._id} petName = {order.petName} date = {order.date} petBreed = {order.petBreed}   petPrice = {order.petPrice} userName = {order.userName} phone = {order.phone} />) }
+                        {orders.map((order) => <OrdersCard key = {order._id} orderId = {order._id} pid = {order.petid} petName = {order.petName} date = {order.date} petBreed = {order.petBreed}   petPrice = {order.petPrice} userName = {order.userName} phone = {order.phone} />) }
                     </div>
                 </div>
             </div>

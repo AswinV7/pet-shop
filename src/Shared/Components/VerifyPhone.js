@@ -4,7 +4,7 @@ import postData from '../../Services/postData'
 import VerifyOrder from './VerifyOrder'
 
 
-const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) => {
+const VerifyPhone = ({Close , Sname, Pname, pid, Pbreed, Pprice , userName, phone}) => {
 
     const [otp, setOtp] = useState("")
     const [open, setOpen] = useState(false);
@@ -28,7 +28,7 @@ const VerifyPhone = ({Close , Sname, Pname, Pbreed, Pprice , userName, phone}) =
 
     return (
         <div className = "OTP">
-            { open && <VerifyOrder Close = {setOpen} Sname = {Sname} Pname = {Pname} Pbreed = {Pbreed} Pprice= {Pprice} userName = {userName} phone = {phone} />}
+            { open && <VerifyOrder Close = {setOpen} Sname = {Sname} pid = {pid} Pname = {Pname} Pbreed = {Pbreed} Pprice= {Pprice} userName = {userName} phone = {phone} />}
             <div className = "closebt">
                 <button  onClick = {() => Close(false)} >X</button>
             </div>
